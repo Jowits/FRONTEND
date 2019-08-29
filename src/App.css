@@ -1,33 +1,53 @@
-.App {
-  text-align: center;
+html, body, app-root {
+  height: 100%;
+  margin: 0;
+  }
+
+
+
+.inventory-body {
+  position: fixed;
+  min-width: 100%;
+  background-image: url("background-cat.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  background-size: cover;
+  }
+
+div.ui.segment {
+  background-color: rgba(241, 232, 232, 0.5);
+  position: absolute;
+  left: 105em;
+  top: 18em;
+  height: 30em;
+  width: 20em;
+  border: none;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.ui.orange.button, .ui.orange.buttons.button {
+  display: block;
+  width:10em;
+  height: 3em;
+  margin: auto;
+  margin-top: 2em;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+a {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+div.ui.header.logo {
+  font-size: 6em;
+  color: rgb(224, 84, 18);
+  clear: both;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 900;
+  margin-left: 1em;
+  margin-top: 0.1em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+

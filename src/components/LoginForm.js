@@ -16,48 +16,55 @@ const LoginForm = ({ submit, routerProps }) => {
     const [password, setPassword] = useState('')
    
     return (
-      <>
-        <Grid centered columns={2}>
-          <Grid.Column>
-            <Header as="h2" textAlign="center">
-              Login
-            </Header>
-            <Segment>
-              <Form 
-                size="large"
-                onSubmit={e => {
-                e.preventDefault();
-                submit({ username, password})
-                setUsername('')
-                setPassword('') }}>
-                <Form.Input
-                  fluid
-                  icon="user"
-                  iconPosition="left"
-                  placeholder="Username"
-                  value={username}
-                  onChange={e => setUsername(e.target.value)}
-                />
-                <Form.Input
-                  fluid
-                  icon="lock"
-                  iconPosition="left"
-                  placeholder="Password"
-                  type="password"
-                  value={password}
-                  onChange={e => setPassword(e.target.value)}
-                />
-                <Button color="blue" fluid size="large">
-                  Login
+        <body  class="inventory-body">
+         <Grid columns={6}r>
+            <Grid.Column>
+                <Header className="logo" >
+                    Catz-Play
+                </Header>
+                <Segment className="segment">
+                <Form className="form"
+                    size="large"
+                    onSubmit={e => {
+                    e.preventDefault();
+                    submit({ username, password})
+                    setUsername('')
+                    setPassword('') }}>
+                    <Header as="h1" textAlign="center">
+                    Let's start the fun!
+                    </Header>
+                    <Form.Input
+                    fluid
+                    icon="user"
+                    iconPosition="left"
+                    placeholder="Username"
+                    value={username}
+                    onChange={e => setUsername(e.target.value)}
+                    />
+                    <Form.Input
+                    fluid
+                    icon="lock"
+                    iconPosition="left"
+                    placeholder="Password"
+                    type="password"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    />
+                    <Button color="orange" >
+                    Login
+                    </Button>
+                </Form>
+                <Header as="h1" textAlign="center">
+                Not registered yet? 
+                </Header>
+                <Button onClick={() => routerProps.history.push("/signup")} color="orange">
+                Sign Up
                 </Button>
-              </Form>
-            </Segment>
-            <Message>
-              Not registered yet? <a onClick={() => routerProps.history.push("/signup")}>Sign Up</a>
-            </Message>
-          </Grid.Column>
-        </Grid>
-      </>
+                </Segment>
+            </Grid.Column>
+          </Grid>
+        </body>
+   
     )
 
 }

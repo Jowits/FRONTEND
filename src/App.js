@@ -51,7 +51,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <>
         <Switch>
           <Route
             exact
@@ -78,7 +78,7 @@ class App extends React.Component {
           <Route path={"/"} render={props => <MainPage user={this.state.user} logOut={this.logOut}/>} />
           <Route component={PageNotFound} />
         </Switch>
-      </div>
+      </>
     );
   }
 }

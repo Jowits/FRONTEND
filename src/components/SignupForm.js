@@ -5,8 +5,8 @@ import { Grid, Form, Input, Button, Message } from 'semantic-ui-react'
 
 const SignupForm = ({ submit, routerProps }) => {
     const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
     const [address, setAddress] = useState('')
+    const [password, setPassword] = useState('')
    
     return (
         <>
@@ -16,10 +16,10 @@ const SignupForm = ({ submit, routerProps }) => {
              size="large"
              onSubmit={e => {
                 e.preventDefault();
-                submit({ username, password, address})
+                submit({ username, address, password})
                 setUsername('')
-                setPassword('')
-                setAddress(' ') }}>
+                setAddress('') 
+                setPassword('')}}>
                 <Form.Group widths='equal'>
                 <Form.Field
                     id='form-input-control-username'
@@ -41,16 +41,15 @@ const SignupForm = ({ submit, routerProps }) => {
                     id='form-input-control-address'
                     control={Input}
                     label='Password'
+                    type='password'
                     placeholder='Password'
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                 />
+                <Button color="blue" fluid size="large">
+                Join Catz-Play
+                </Button>
                 </Form.Group>
-                <Form.Field
-                id='form-button-control-public'
-                control={Button}
-                content='Join Catz-Play'
-                />
             </Form>
             <Message>
                     Have an account? <a onClick={() => routerProps.history.push("/login")}>Login</a>

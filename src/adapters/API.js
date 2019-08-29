@@ -55,6 +55,24 @@ const validateUser = () => {
         .then(saveToken)
         .catch(handleServerError)
 }
+const fetchProfile = (profileID) => {
+    return fetch(`${signupUrl}/${profileID}`, {
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        }
+    })
+    .then(resp => resp.json())
+}
+
+const fetchUser = () => {
+    return fetch(`${signupUrl}`, {
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        }
+    })
+    .then(resp => resp.json())
+}
+
 
 
 const postCat = cat => fetch(catsUrl, {
@@ -77,5 +95,7 @@ export default {
     validateUser,
     clearToken,
     postCat,
-    getCats
+    getCats,
+    fetchProfile,
+    fetchUser
 }
