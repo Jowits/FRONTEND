@@ -3,11 +3,15 @@ import { Grid, Form, Input, Button, Message } from 'semantic-ui-react'
 
 
 
-const SignupForm = ({ submit, routerProps }) => {
+const SignupForm = ({ submit, routerProps, user }) => {
     const [username, setUsername] = useState('')
     const [address, setAddress] = useState('')
     const [password, setPassword] = useState('')
    
+    React.useEffect(() => {
+      if (user) routerProps.history.push("/");
+    }, []);
+
     return (
         <>
         <Grid centered columns={2}>

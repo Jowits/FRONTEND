@@ -31,7 +31,6 @@ class Profile extends React.Component {
             <Card.Content extra>
             <a>
                 <Icon name='paw' />
-               
             </a>
             </Card.Content>
             {}

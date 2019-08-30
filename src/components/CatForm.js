@@ -1,77 +1,80 @@
-import React from 'react'
-import { Button, Form, Grid } from 'semantic-ui-react'
-import CatCard from '../components/CatCard';
+import React from "react";
+import { Button, Form, Grid } from "semantic-ui-react";
+import CatCard from "../components/CatCard";
+import API from "../adapters/API";
 
-class CatForm extends React.Component  {
-
+class CatForm extends React.Component {
   state = {
-      image: "",
-      name: "",
-      address: "",
-      description:""
-  }
+    image: "",
+    name: "",
+    address: "",
+    description: ""
+  };
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
   handleSubmit = () => {
-    this.props.createCat(this.state)
-    this.setState({
-      image: "",
-      name: "",
-      address: "",
-      description:""})
-  }
+    const cat = this.state
+    API.createCat(cat)
+    .then(() => this.props.history.push("/"))
+    
+  };
 
-  handleChange = (key, value) => {
-    this.setState({
-        [key]: value
-    })
-}
-//   const [image, setImage] = useState('')
-//   const [name, setName] = useState('')
-//   const [address, setAddress] = useState('')
-//   const [description, setDescription] = useState('')
-render (){
-  return (
-    <>
-       <Grid centered columns={2}>
+  //   const [image, setImage] = useState('')
+  //   const [name, setName] = useState('')
+  //   const [address, setAddress] = useState('')
+  //   const [description, setDescription] = useState('')
+  render() {
+    return (
+      <>
+        <Grid centered columns={2}>
           <Grid.Column>
-            <Form>
-                <Form.Field>
+            <Form onSubmit={() => this.handleSubmit(this.state)}>
+              <Form.Field>
                 <label>Image</label>
-                <input 
-                placeholder='Image' 
-                value={this.state.image}
-                onChange={e => this.handleChange(e.target.value)}
+                <input
+                  name="image"
+                  placeholder="Image"
+                  value={this.state.image}
+                  onChange={this.handleChange}
                 />
-                </Form.Field>
-                <Form.Field>
+              </Form.Field>
+              <Form.Field>
                 <label>Name</label>
-                <input 
-                placeholder='Name'
-                value={this.state.name}
-                onChange={e => this.handleChange(e.target.value)} />
-                </Form.Field>
-                <Form.Field>
+                <input
+                  name="name"
+                  placeholder="Name"
+                  value={this.state.name}
+                  onChange={this.handleChange}
+                />
+              </Form.Field>
+              <Form.Field>
                 <label>Area</label>
-                <input 
-                placeholder='Area'
-                value={this.state.address}
-                onChange={e => this.handleChange(e.target.value)} />
-                </Form.Field>
-                <Form.Field>
+                <input
+                  name="address"
+                  placeholder="Area"
+                  value={this.state.address}
+                  onChange={this.handleChange}
+                />
+              </Form.Field>
+              <Form.Field>
                 <label>Description</label>
-                <input 
-                placeholder='Description' 
-                value={this.state.description}
-                onChange={e => this.handleChange(e.target.value)}/>
-                </Form.Field>
-                <Button onClick={this.handleSubmit} type='submit'>Submit</Button>
+                <input
+                  name="description"
+                  placeholder="Description"
+                  value={this.state.description}
+                  onChange={this.handleChange}
+                />
+              </Form.Field>
+              <Button type="submit">Submit</Button>
             </Form>
           </Grid.Column>
         </Grid>
-    </>
-  )
-} 
+      </>
+    );
+  }
 }
 
-export default CatForm
-
+export default CatForm;

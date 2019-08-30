@@ -64,14 +64,14 @@ const fetchProfile = (profileID) => {
     .then(resp => resp.json())
 }
 
-const createCat = (cat, username) => {
+const createCat = (cat) => {
     return fetch(catsUrl, {
     method: 'POST',
     headers:
         {'Authorization': localStorage.getItem('token'),
         'Accept': 'application/json',
         'Content-Type': 'application/json'},
-    body: JSON.stringify({image: cat.image, name: cat.name, address: cat.address, description: cat.description, user_id: username})
+    body: JSON.stringify(cat)
     }).then(response => response.json())
 }
 

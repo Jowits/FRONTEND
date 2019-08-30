@@ -13,6 +13,8 @@ class CatContainer extends React.Component {
     API.fetchCats().then(cats => this.setState({ cats }));
   }
 
+  
+
   render() {
     return (
       <div>
