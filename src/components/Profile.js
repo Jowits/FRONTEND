@@ -18,7 +18,7 @@ class Profile extends React.Component {
         if (!this.props.user || !this.state.userProfile) return <div></div>
         return(
             <Card>
-            {/* <Image src='/images/avatar/large/matthew.png' wrapped ui={false} /> */}
+            {/* <Image src='' wrapped ui={false} /> */}
             <Card.Content>
             <Card.Header>{this.state.userProfile.user.username}</Card.Header>
             <Card.Meta>
@@ -34,7 +34,7 @@ class Profile extends React.Component {
                
             </a>
             </Card.Content>
-            {/* {(this.state.userProfile.user.id === this.props.user.id) ? <Button basic color="red">Delete Account </Button> : null} */}
+            {}
         </Card>
         )
     }

@@ -64,7 +64,18 @@ const fetchProfile = (profileID) => {
     .then(resp => resp.json())
 }
 
-const fetchUser = () => {
+const createCat = (cat, username) => {
+    return fetch(catsUrl, {
+    method: 'POST',
+    headers:
+        {'Authorization': localStorage.getItem('token'),
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'},
+    body: JSON.stringify({image: cat.image, name: cat.name, address: cat.address, description: cat.description, user_id: username})
+    }).then(response => response.json())
+}
+
+const fetchUsers = () => {
     return fetch(`${signupUrl}`, {
         headers: {
             'Authorization': localStorage.getItem('token')
@@ -73,7 +84,14 @@ const fetchUser = () => {
     .then(resp => resp.json())
 }
 
-
+const fetchCats = () => {
+    return fetch(`${catsUrl}`, {
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        }
+    })
+    .then(response => response.json())
+}
 
 const postCat = cat => fetch(catsUrl, {
     method: 'POST',
@@ -85,7 +103,6 @@ const postCat = cat => fetch(catsUrl, {
 }).then(jsonify)
     .catch(handleServerError)
 
-const getCats = () => fetch(catsUrl).then(jsonify)
 
 const clearToken = () => localStorage.removeItem('token')
 
@@ -95,7 +112,8 @@ export default {
     validateUser,
     clearToken,
     postCat,
-    getCats,
     fetchProfile,
-    fetchUser
+    fetchUsers,
+    fetchCats,
+    createCat
 }
