@@ -1,6 +1,6 @@
 import React from "react";
 import API from "../adapters/API.js";
-import ReviewCard from "../components/ReviewCard";
+import CommentCard from "../components/CommentCard";
 
 class ReviewContainer extends React.Component {
   state = {
@@ -14,7 +14,7 @@ class ReviewContainer extends React.Component {
     return (
       <div className="master-detail-element sidebar">
         {this.state.reviews.map(review => (
-          <ReviewCard review={review} />
+          <CommentCard review={review} />
         ))}
       </div>
     );

@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Icon, Image, Button, Rating, Grid, Form } from "semantic-ui-react";
 import API from "../adapters/API";
+import CommentCard from "../components/CommentCard";
 
 
 class CatCard extends React.Component {
@@ -15,7 +16,6 @@ class CatCard extends React.Component {
   };
 
   handleSubmit = () => {
-    debugger
     const review =  this.state
     API.createReview(review)
     .then(() => this.props.history.push("/"))
@@ -54,6 +54,7 @@ class CatCard extends React.Component {
               />
             </Form>
           </Card.Content>
+          
         </Card>
       </Grid.Column>
     </Grid>

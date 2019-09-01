@@ -33,7 +33,7 @@ class CatContainer extends React.Component {
    
     return (
       <div>
-       <FilteredCats cats={this.state.cats} />
+       <FilteredCats cats={this.state.cats}  />
       </div>
     );
   }
