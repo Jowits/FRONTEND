@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Form, Grid } from "semantic-ui-react";
-import CatCard from "../components/CatCard";
 import API from "../adapters/API";
 
 class CatForm extends React.Component {

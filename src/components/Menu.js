@@ -11,12 +11,11 @@ const MenuPage = ({logOut, user}) => {
             <Menu floated="right" >
                 <Menu.Item >  <Link to={`/profile/${user.id}`}> Manage your account </Link>  </Menu.Item>
                 <Menu.Item >  <Link to={`/add-cat`}> Add cat profile </Link>  </Menu.Item>
-                <Menu.Item >  <Link to={`/review`}> Review play-date </Link>  </Menu.Item>
                 {/* <Menu.Item >  </Menu.Item> */}
                 <Menu.Item onClick={logOut}> Logout </Menu.Item>
             </Menu>
         </div>
-        
+
     )
 }
 

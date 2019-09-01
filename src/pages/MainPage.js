@@ -3,12 +3,15 @@ import NavBar from "../components/NavBar";
 import Menu from "../components/Menu";
 import { Route } from "react-router-dom";
 import Profile from "../components/Profile";
-// import CatContainer from '../components/CatContainer';
+import ReviewContainer from '../containers/ReviewContainer';
 import CatForm from "../components/CatForm";
+// import CatCard from "../components/CatCard";
 import CatContainer from "../containers/CatContainer";
-import API from "../adapters/API";
+
 
 class MainPage extends React.Component {
+
+   
   render() {
     if (!this.props.user) return <div></div>;
     return (
@@ -33,14 +36,27 @@ class MainPage extends React.Component {
         <Route
           path={"/add-cat"}
           render={routerProps => (
-            <CatForm success={this.props.success} user={this.props.user} routerProps={routerProps}  />
+            <CatForm  user={this.props.user} {...routerProps}  />
+          )}
+        />
+        {/* <Route
+          path={"/"}
+          render={routerProps => (
+            <CatCard user={this.props.user} {...routerProps}  />
+          )}
+        /> */}
+        <Route
+          exact
+          path={"/"}
+          render={routerProps => (
+            <CatContainer user={this.props.user} {...routerProps} />
           )}
         />
         <Route
           exact
           path={"/"}
           render={routerProps => (
-            <CatContainer user={this.props.user} {...routerProps} />
+            <ReviewContainer user={this.props.user} {...routerProps} />
           )}
         />
         {/* <CatCard /> */}

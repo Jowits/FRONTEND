@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Icon, Image, Button } from 'semantic-ui-react'
+import { Card, Icon } from 'semantic-ui-react'
 import API from '../adapters/API'
 
 class Profile extends React.Component {
@@ -21,15 +21,12 @@ class Profile extends React.Component {
             {/* <Image src='' wrapped ui={false} /> */}
             <Card.Content>
             <Card.Header>{this.state.userProfile.user.username}</Card.Header>
-            <Card.Meta>
-                <span className='date'></span>
-            </Card.Meta>
             <Card.Description>
                 {this.state.userProfile.user.address}
             </Card.Description>
             </Card.Content>
             <Card.Content extra>
-            <a>
+            <a href="#">
                 <Icon name='paw' />
             </a>
             </Card.Content>
