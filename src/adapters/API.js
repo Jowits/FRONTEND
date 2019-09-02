@@ -3,6 +3,7 @@ const signupUrl = `${endpoint}/users`;
 const loginUrl = `${endpoint}/login`;
 const catsUrl = `${endpoint}/cats`;
 const reviewsUrl = `${endpoint}/reviews`;
+const meetUpsUrl = `${endpoint}/cats/meet_ups`;
 const validateUrl = `${endpoint}/validate`;
 
 const jsonify = res => {
@@ -91,6 +92,18 @@ const createReview = review => {
   }).then(response => response.json());
 };
 
+const createMeetUp = meet_ups => {
+  return fetch(meetUpsUrl, {
+    method: "POST",
+    headers: {
+      Authorization: localStorage.getItem("token"),
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(meet_ups)
+  }).then(response => response.json());
+};
+
 const fetchUsers = () => {
   return fetch(`${signupUrl}`, {
     headers: {
@@ -162,5 +175,6 @@ export default {
   fetchReviews,
   createReview,
   postReview,
-  deleteCat
+  deleteCat,
+  createMeetUp
 };

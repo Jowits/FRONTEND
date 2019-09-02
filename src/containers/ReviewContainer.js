@@ -10,11 +10,13 @@ class ReviewContainer extends React.Component {
   componentDidMount() {
     API.fetchReviews().then(reviews => this.setState({ reviews }));
   }
+
+  
   render() {
     return (
       <div className="master-detail-element sidebar">
         {this.state.reviews.map(review => (
-          <CommentCard review={review} />
+          <CommentCard key={review.id} review={review} />
         ))}
       </div>
     );

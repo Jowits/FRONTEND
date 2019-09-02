@@ -3,15 +3,22 @@ import NavBar from "../components/NavBar";
 import Menu from "../components/Menu";
 import { Route } from "react-router-dom";
 import Profile from "../components/Profile";
-import ReviewContainer from '../containers/ReviewContainer';
+import ReviewContainer from "../containers/ReviewContainer";
 import CatForm from "../components/CatForm";
-// import CatCard from "../components/CatCard";
+import EmailForm from "../components/EmailForm";
 import CatContainer from "../containers/CatContainer";
 
-
 class MainPage extends React.Component {
+  state = {
+    receiver: ""
+  };
 
-   
+  setsReceiver = user => {
+    this.setState({
+      receiver: user
+    });
+  };
+
   render() {
     if (!this.props.user) return <div></div>;
     return (
@@ -30,13 +37,13 @@ class MainPage extends React.Component {
         <Route
           path={"/profile/:id"}
           render={routerProps => (
-            <Profile user={this.props.user}  routerProps={routerProps} />
+            <Profile user={this.props.user} routerProps={routerProps} />
           )}
         />
         <Route
           path={"/add-cat"}
           render={routerProps => (
-            <CatForm  user={this.props.user} {...routerProps}  />
+            <CatForm user={this.props.user} {...routerProps} />
           )}
         />
         {/* <Route
@@ -49,7 +56,11 @@ class MainPage extends React.Component {
           exact
           path={"/"}
           render={routerProps => (
-            <CatContainer user={this.props.user} {...routerProps} />
+            <CatContainer
+              setReceiver={this.setsReceiver}
+              user={this.props.user}
+              {...routerProps}
+            />
           )}
         />
         <Route
@@ -57,6 +68,17 @@ class MainPage extends React.Component {
           path={"/"}
           render={routerProps => (
             <ReviewContainer user={this.props.user} {...routerProps} />
+          )}
+        />
+        <Route
+          exact
+          path={"/email_form"}
+          render={routerProps => (
+            <EmailForm
+              receiver={this.state.receiver}
+              user={this.props.user}
+              {...routerProps}
+            />
           )}
         />
         {/* <CatCard /> */}

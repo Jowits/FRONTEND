@@ -16,6 +16,7 @@ const LoginForm = ({ submit, routerProps, user }) => {
           <Header className="logo">Catz-Play</Header>
           <Segment className="segment">
             <Form
+              error={{ content: 'Please enter your first name', pointing: 'below' }}
               className="form"
               size="large"
               onSubmit={e => {
@@ -29,6 +30,7 @@ const LoginForm = ({ submit, routerProps, user }) => {
                 Let's start the fun!
               </Header>
               <Form.Input
+                // error={{ content: 'Please enter your username', pointing: 'below' }}
                 fluid
                 icon="user"
                 iconPosition="left"
@@ -37,6 +39,7 @@ const LoginForm = ({ submit, routerProps, user }) => {
                 onChange={e => setUsername(e.target.value)}
               />
               <Form.Input
+                // error={{ content: 'Please enter your password', pointing: 'below' }}
                 fluid
                 icon="lock"
                 iconPosition="left"

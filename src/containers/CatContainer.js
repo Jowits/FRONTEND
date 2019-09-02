@@ -2,7 +2,7 @@ import React from "react";
 import API from "../adapters/API.js";
 import FilteredCats from "../components/FilteredCats";
 import { Route } from "react-router-dom";
-
+import CatCard from "../components/CatCard.js";
 
 class CatContainer extends React.Component {
   state = {
@@ -14,12 +14,12 @@ class CatContainer extends React.Component {
     API.fetchCats().then(cats => this.setState({ cats }));
   }
 
-  handleChange = event =>{
+  handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
-    })
-  }
-  
+    });
+  };
+
   filterSearch = () => {
     if (this.state.search) {
       return this.state.cats.filter(cat =>
@@ -30,10 +30,16 @@ class CatContainer extends React.Component {
   };
 
   render() {
-   
+    const { history, location, match } = this.props;
+    const routerProps = { history, location, match };
+
     return (
       <div>
-       <FilteredCats cats={this.state.cats}  />
+        <FilteredCats
+          setReceiver={this.props.setReceiver}
+          cats={this.state.cats}
+          {...routerProps}
+        />
       </div>
     );
   }

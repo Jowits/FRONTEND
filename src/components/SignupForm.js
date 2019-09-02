@@ -6,6 +6,7 @@ import { Grid, Form, Input, Button, Message } from 'semantic-ui-react'
 const SignupForm = ({ submit, routerProps, user }) => {
     const [username, setUsername] = useState('')
     const [address, setAddress] = useState('')
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
    
     React.useEffect(() => {
@@ -20,9 +21,10 @@ const SignupForm = ({ submit, routerProps, user }) => {
              size="large"
              onSubmit={e => {
                 e.preventDefault();
-                submit({ username, address, password})
+                submit({ username, address, email, password})
                 setUsername('')
                 setAddress('') 
+                setEmail('') 
                 setPassword('')}}>
                 <Form.Group widths='equal'>
                 <Form.Field
@@ -42,7 +44,15 @@ const SignupForm = ({ submit, routerProps, user }) => {
                     onChange={e => setAddress(e.target.value)}
                 />
                 <Form.Field
-                    id='form-input-control-address'
+                    id='form-input-control-email'
+                    control={Input}
+                    label='Email'
+                    placeholder='Email'
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                />
+                <Form.Field
+                    id='form-input-control-password'
                     control={Input}
                     label='Password'
                     type='password'
