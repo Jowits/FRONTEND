@@ -8,7 +8,7 @@ class CatCard extends React.Component {
 
   state = {
     text: "",
-    cat_id: this.props.cat.id
+    cat_id: this.props.cat.id,
   };
 
   handleChange = e => {
@@ -21,6 +21,10 @@ class CatCard extends React.Component {
     .then(() => this.props.history.push("/"))
   };
 
+
+  filterUserCats = () => {
+       this.props.cats.filter(cat => cat.user_id === this.props.user_id)
+  }
 
   render() {
     return (
@@ -37,7 +41,11 @@ class CatCard extends React.Component {
             <Card.Description>{this.props.cat.description}</Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <Button>Play-date Time!</Button>
+            <ul>
+              {/* {this.filterUserCats().map(cat => cat.name)} */}
+            </ul>
+            <Button
+            >Play-date Time!</Button>
           </Card.Content>
           <Card.Content extra>
             <Form reply onSubmit={() => this.handleSubmit(this.state)} >
@@ -46,7 +54,7 @@ class CatCard extends React.Component {
               placeholder="text"
               value={this.state.text}
               onChange={this.handleChange}/>
-              <Button 
+              <Button
                 content="Submit Review"
                 labelPosition="left"
                 icon="edit"
@@ -54,7 +62,7 @@ class CatCard extends React.Component {
               />
             </Form>
           </Card.Content>
-          
+
         </Card>
       </Grid.Column>
     </Grid>

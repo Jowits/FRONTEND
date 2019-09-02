@@ -19,7 +19,7 @@ class CatContainer extends React.Component {
       [event.target.name]: event.target.value
     })
   }
-
+  
   filterSearch = () => {
     if (this.state.search) {
       return this.state.cats.filter(cat =>
