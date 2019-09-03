@@ -8,7 +8,7 @@ export default class EmailForm extends Component {
     formSubmitted: false
   };
 
-  static sender = "catz_play@example.com";
+  static sender = "catzPlay7@gmail.com";
 
   handleChange = event => {
     this.setState({
@@ -18,17 +18,17 @@ export default class EmailForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    debugger;
+    console.log(process.env);
 
     const {
-      REACT_APP_EMAILJS_RECEIVER: receiverEmail,
+      //   REACT_APP_EMAILJS_RECEIVER: receiverEmail,
       REACT_APP_EMAILJS_TEMPLATEID: template
-    } = this.props.env;
+    } = process.env;
 
     this.sendFeedback(
       template,
-      this.sender,
-      receiverEmail,
+      this.props.user.email,
+      this.props.receiver.email,
       this.state.feedback
     );
 
@@ -37,13 +37,16 @@ export default class EmailForm extends Component {
     });
   };
 
-  sendFeedback(templateId, senderEmail, receiverEmail, feedback) {
+  sendFeedback(templateId) {
+    let template_params = {
+      reply_to: this.props.user.email,
+      from_name: this.props.user.username,
+      to_name: this.props.receiver.username,
+      message_html: this.state.feedback
+    };
+
     window.emailjs
-      .send("default_service", templateId, {
-        senderEmail,
-        receiverEmail,
-        feedback
-      })
+      .send("gmail", templateId, template_params, "user_vB22KBqPVH1Jhmf28msL7")
       .then(res => {
         this.setState({
           formEmailSent: true
@@ -59,18 +62,18 @@ export default class EmailForm extends Component {
         <Form onSubmit={this.handleSubmit}>
           <Form.Field>
             <label>Username</label>
-            <input placeholder="First Name" />
+            <input placeholder="Username" value={this.props.user.username} />
           </Form.Field>
           <Form.Field>
             <label>Email</label>
-            <input placeholder="Last Name" value={this.props.receiver.email} />
+            <input placeholder="Receiver" value={this.props.receiver.email} />
           </Form.Field>
           <Form.Field>
             <Form.TextArea
               onChange={this.handleChange}
               value={this.state.feedback}
               name="text"
-              placeholder="text"
+              placeholder="Play-date time!"
             />
           </Form.Field>
           <Button value="Submit" type="submit">
