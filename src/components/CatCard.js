@@ -5,23 +5,28 @@ import {
   Icon,
   Image,
   Button,
-  Rating,
   Grid,
-  Form
+  Form,
+  Comment,
+  Header
 } from "semantic-ui-react";
 import API from "../adapters/API";
 
 class CatCard extends React.Component {
   state = {
     text: "",
-    cat_id: this.props.cat.id,
-    toggleShowDetails: false
+    cat_id: null,
+    toggleShowDetails: false,
   };
 
-  setReceiverAndRedirect = user => {
-    this.props.setReceiver(user) 
-    this.props.history.push("/email_form")
+  componentDidMount() {
+    this.setState({ cat_id: this.props.cat.id });
   }
+
+  setReceiverAndRedirect = user => {
+    this.props.setReceiver(user);
+    this.props.history.push("/email_form");
+  };
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -29,7 +34,7 @@ class CatCard extends React.Component {
 
   handleSubmit = () => {
     const review = this.state;
-    API.createReview(review).then(() => this.props.history.push("/"));
+    API.createReview(review).then(window.location.reload());
   };
 
   // filterUserCats = () => {
@@ -47,7 +52,7 @@ class CatCard extends React.Component {
   bookCat = () => {
     return (
       <Card>
-        <Card.Content extra>
+        <Card.Content>
           <Form reply onSubmit={() => this.handleSubmit(this.state)}>
             <Form.TextArea
               name="text"
@@ -62,37 +67,56 @@ class CatCard extends React.Component {
               primary
             />
           </Form>
+          <Comment.Group>
+            <Comment>
+              <Header as="h3" dividing>
+                Comments
+              </Header>
+              <Comment.Content>
+                <Comment.Author as="a">
+                {}</Comment.Author>
+                <Comment.Text>
+                {this.props.cat.reviews.map(review => <h4>{ review.text }</h4>  )}
+                </Comment.Text>
+              </Comment.Content>
+            </Comment>
+          </Comment.Group>
         </Card.Content>
       </Card>
     );
   };
   render() {
+    if (!this.props.cat) return <div></div>;
     return (
       <>
-        <Grid container columns={3}>
-          <Grid.Column>
-            <Card>
-              <Image src={this.props.cat.image} wrapped ui={false} />
+        <Card.Group centered>
+          <Card className="catCard">
+            <Image src={this.props.cat.image} />
+            <Card.Content>
+              <Card.Header>
+                {this.props.cat.name} <Icon name="paw" />
+              </Card.Header>
               <Card.Content>
-                <Card.Header>
-                  {this.props.cat.name} <Icon name="paw" />
-                </Card.Header>
                 <Card.Description>
                   {this.props.cat.description}
                 </Card.Description>
-                <Card.Content extra>
-                  <Button onClick={() => this.setReceiverAndRedirect(this.props.cat.user)}>
-                    Book Play_Date!
-                  </Button>
-                  <Button onClick={this.toggleShowDetails}>
-                    {this.state.showDetails ? "hide" : "Review me!"}
-                  </Button>
-                  <div>{this.state.showDetails && this.bookCat()}</div>
-                </Card.Content>
               </Card.Content>
-            </Card>
-          </Grid.Column>
-        </Grid>
+              <Card.Content extra>
+                <Button
+                  onClick={() =>
+                    this.setReceiverAndRedirect(this.props.cat.user)
+                  }
+                >
+                  Book Play_Date!
+                </Button>
+                <Button onClick={this.toggleShowDetails}>
+                  {this.state.showDetails ? "hide" : "Review me!"}
+                </Button>
+                <div>{this.state.showDetails && this.bookCat()}</div>
+              </Card.Content>
+            </Card.Content>
+          </Card>
+        </Card.Group>
       </>
     );
   }

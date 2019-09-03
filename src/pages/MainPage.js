@@ -3,7 +3,6 @@ import NavBar from "../components/NavBar";
 import Menu from "../components/Menu";
 import { Route } from "react-router-dom";
 import Profile from "../components/Profile";
-import ReviewContainer from "../containers/ReviewContainer";
 import CatForm from "../components/CatForm";
 import EmailForm from "../components/EmailForm";
 import CatContainer from "../containers/CatContainer";
@@ -61,13 +60,6 @@ class MainPage extends React.Component {
               user={this.props.user}
               {...routerProps}
             />
-          )}
-        />
-        <Route
-          exact
-          path={"/"}
-          render={routerProps => (
-            <ReviewContainer user={this.props.user} {...routerProps} />
           )}
         />
         <Route

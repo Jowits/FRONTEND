@@ -61,8 +61,8 @@ export default class EmailForm extends Component {
       <div>
         <Form onSubmit={this.handleSubmit}>
           <Form.Field>
-            <label>Username</label>
-            <input placeholder="Username" value={this.props.user.username} />
+            <label>Receiver</label>
+            <input placeholder="Username" value={this.props.receiver.username} />
           </Form.Field>
           <Form.Field>
             <label>Email</label>

@@ -54,24 +54,7 @@ div.ui.header.logo {
 }
 
 
-.master-detail-element {
-  float:left;
-  margin: 10px 10px;
-  padding: 20px;
-  
-}
-
-.sidebar {
-  width: 18em;
-  height: 45em;
-  overflow: scroll;
-  border-radius: 0.4em;
-  background-color: white;
-  border: solid;
-  margin-left: 2em;
-}
-
-div.sidebar button {
-  width: 100%;
+.catCard{
+   width: 5em;
+   
  }
-
