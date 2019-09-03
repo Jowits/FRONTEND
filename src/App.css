@@ -53,8 +53,23 @@ div.ui.header.logo {
   margin-top: 0.1em;
 }
 
+.navbar {
+  height: 6em;
 
-.catCard{
-   width: 5em;
-   
- }
+}
+
+div.ui.item.catzButton {
+  width: 7em;
+  font-size: 2em;
+}
+
+div.item {
+  width: 20em;
+}
+div.ui.item{
+  width: 6em;
+  font-size: 1.5em;
+}
+.cardSize {
+  widows: 10em;
+}

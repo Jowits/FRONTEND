@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 const NavBar = props => {
   return (
       
-    <div className="ui inverted  menu">
-      <div className="ui item">
+    <div className="ui inverted  menu navbar">
+      <div className="ui item catzButton">
         {" "}
         <Link to={`/`}> Catz-Play </Link>{" "}
       </div>
@@ -18,7 +18,7 @@ const NavBar = props => {
           {" "}
           <Link to={`/menu`}>
             {" "}
-            <Icon name="bars" />{" "}
+            Menu
           </Link>{" "}
         </div>
       </div>

@@ -16,7 +16,7 @@ class CatCard extends React.Component {
   state = {
     text: "",
     cat_id: null,
-    toggleShowDetails: false,
+    toggleShowDetails: false
   };
 
   componentDidMount() {
@@ -73,10 +73,11 @@ class CatCard extends React.Component {
                 Comments
               </Header>
               <Comment.Content>
-                <Comment.Author as="a">
-                {}</Comment.Author>
+                <Comment.Author as="a">{}</Comment.Author>
                 <Comment.Text>
-                {this.props.cat.reviews.map(review => <h4>{ review.text }</h4>  )}
+                  {this.props.cat.reviews.map(review => (
+                    <h4>{review.text}</h4>
+                  ))}
                 </Comment.Text>
               </Comment.Content>
             </Comment>
@@ -89,34 +90,29 @@ class CatCard extends React.Component {
     if (!this.props.cat) return <div></div>;
     return (
       <>
-        <Card.Group centered>
-          <Card className="catCard">
-            <Image src={this.props.cat.image} />
+       
+        <Card >
+          <Image wrapped ui={false}  src={this.props.cat.image} size='small'/>
+          <Card.Content>
+            <Card.Header>
+              {this.props.cat.name} <Icon name="paw" />
+            </Card.Header>
             <Card.Content>
-              <Card.Header>
-                {this.props.cat.name} <Icon name="paw" />
-              </Card.Header>
-              <Card.Content>
-                <Card.Description>
-                  {this.props.cat.description}
-                </Card.Description>
-              </Card.Content>
-              <Card.Content extra>
-                <Button
-                  onClick={() =>
-                    this.setReceiverAndRedirect(this.props.cat.user)
-                  }
-                >
-                  Book Play_Date!
-                </Button>
-                <Button onClick={this.toggleShowDetails}>
-                  {this.state.showDetails ? "hide" : "Review me!"}
-                </Button>
-                <div>{this.state.showDetails && this.bookCat()}</div>
-              </Card.Content>
+              <Card.Description>{this.props.cat.description}</Card.Description>
             </Card.Content>
-          </Card>
-        </Card.Group>
+            <Card.Content extra>
+              <Button
+                onClick={() => this.setReceiverAndRedirect(this.props.cat.user)}
+              >
+                Book Play_Date!
+              </Button>
+              <Button onClick={this.toggleShowDetails}>
+                {this.state.showDetails ? "hide" : "Review me!"}
+              </Button>
+              <div>{this.state.showDetails && this.bookCat()}</div>
+            </Card.Content>
+          </Card.Content>
+        </Card>
       </>
     );
   }
