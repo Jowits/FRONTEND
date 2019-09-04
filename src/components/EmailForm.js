@@ -62,11 +62,11 @@ export default class EmailForm extends Component {
         <Form onSubmit={this.handleSubmit}>
           <Form.Field>
             <label>Receiver</label>
-            <input placeholder="Username" value={this.props.receiver.username} />
+            <input disabled placeholder="Username" value={this.props.receiver.username} />
           </Form.Field>
           <Form.Field>
             <label>Email</label>
-            <input placeholder="Receiver" value={this.props.receiver.email} />
+            <input disabled placeholder="Receiver" value={this.props.receiver.email} />
           </Form.Field>
           <Form.Field>
             <Form.TextArea

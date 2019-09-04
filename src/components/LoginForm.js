@@ -65,5 +65,4 @@ const LoginForm = ({ submit, routerProps, user }) => {
     </div>
   );
 };
-
 export default LoginForm;

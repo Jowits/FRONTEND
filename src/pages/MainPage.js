@@ -36,7 +36,7 @@ class MainPage extends React.Component {
         <Route
           path={"/profile/:id"}
           render={routerProps => (
-            <Profile user={this.props.user} routerProps={routerProps} />
+            <Profile user={this.props.user} {...routerProps} />
           )}
         />
         <Route

@@ -90,7 +90,7 @@ class CatCard extends React.Component {
     if (!this.props.cat) return <div></div>;
     return (
       <>
-       
+      <Grid.Column className="catCard" width={3}>
         <Card >
           <Image wrapped ui={false}  src={this.props.cat.image} size='small'/>
           <Card.Content>
@@ -104,7 +104,7 @@ class CatCard extends React.Component {
               <Button
                 onClick={() => this.setReceiverAndRedirect(this.props.cat.user)}
               >
-                Book Play_Date!
+                Book Cat!
               </Button>
               <Button onClick={this.toggleShowDetails}>
                 {this.state.showDetails ? "hide" : "Review me!"}
@@ -113,6 +113,7 @@ class CatCard extends React.Component {
             </Card.Content>
           </Card.Content>
         </Card>
+        </Grid.Column>
       </>
     );
   }
