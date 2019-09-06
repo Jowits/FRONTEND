@@ -10,6 +10,7 @@ class CatContainer extends React.Component {
     return (
       <div>
         <FilteredCats
+          user={this.props.user}
           setReceiver={this.props.setReceiver}
           cats={this.props.cats}
           {...routerProps}

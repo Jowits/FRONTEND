@@ -16,12 +16,18 @@ class CatCard extends React.Component {
   state = {
     text: "",
     cat_id: null,
+    cat: null,
     toggleShowDetails: false,
-    reviews: []
+    reviews: [],
+    user: {}
   };
 
   componentDidMount() {
-    this.setState({ cat_id: this.props.cat.id });
+    this.setState({
+      cat_id: this.props.cat.id,
+      cat: this.props.cat,
+      user: this.props.user
+    });
     API.fetchReviews().then(reviews => this.setState({ reviews }));
   }
 
@@ -34,17 +40,13 @@ class CatCard extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSubmit = review => {
+  // map over reviews to get only cats reviews#########################################################
+  handleSubmit = () => {
     const newReview = this.state;
-    API.createReview(newReview);
-    if (!this.state.reviews.includes(review))
-      this.setState({ text: [...this.state.reviews, review] });
+    API.createReview(newReview).then(() => {
+      this.setState({ reviews: [...this.state.reviews, newReview] });
+    });
   };
-
-  // updateUserState = cat => {
-  //   if (!this.state.user.cats.includes(cat))
-  //     this.setState({ cats: [...this.state.user.cats, cat] });
-  // };
 
   toggleShowDetails = () =>
     this.setState({ showDetails: !this.state.showDetails });
@@ -73,12 +75,11 @@ class CatCard extends React.Component {
                 Comments
               </Header>
               <Comment.Content>
-                <Comment.Author>
-                  <h3>{this.props.cat.user.username}</h3>
-                </Comment.Author>
                 <Comment.Text>
-                  {this.props.cat.reviews.map(review => (
-                    <h4>{review.text}</h4>
+                  {this.state.reviews.map(review => (
+                    <h4>
+                      {review.user.username} - {review.text}
+                    </h4>
                   ))}
                 </Comment.Text>
               </Comment.Content>

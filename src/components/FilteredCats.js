@@ -13,6 +13,7 @@ class FilteredCats extends React.Component {
           <Card.Group centered itemsPerRow={3}>
             {this.props.cats.map(cat => (
               <CatCard
+                user={this.props.user}
                 setReceiver={this.props.setReceiver}
                 key={cat.id}
                 cat={cat}
