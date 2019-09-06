@@ -10,7 +10,8 @@ import "semantic-ui-css/semantic.min.css";
 
 class App extends React.Component {
   state = {
-    user: undefined
+    user: undefined,
+    cats: []
   };
 
   componentDidMount() {
@@ -21,7 +22,36 @@ class App extends React.Component {
         this.setState({ user: data });
       }
     });
+    API.fetchCats().then(cats => this.setState({ cats }));
   }
+
+  updateUserState = cat => {
+    if (!this.state.user.cats.includes(cat))
+      this.setState({ cats: [...this.state.user.cats, cat] });
+  };
+
+  updateCatCat = cat => {
+    if (!this.state.cats.includes(cat))
+      this.setState({ user: { ...this.state.user, cat } });
+  };
+
+  deleteCat = id => {
+    API.deleteCat(id).then(data => {
+      const newCatArray = this.state.user.cats.filter(
+        cat => cat.id !== data.deleted_cat_id
+      );
+      this.setState({
+        user: {
+          ...this.state.user,
+          cats: newCatArray
+        },
+        cats: {
+          ...this.state.cats,
+          cats: newCatArray
+        }
+      });
+    });
+  };
 
   signUp = user => {
     API.signUp(user).then(user =>
@@ -77,8 +107,12 @@ class App extends React.Component {
             path={"/"}
             render={routerProps => (
               <MainPage
+                updateUserState={this.updateUserState}
+                updateCatCat={this.updateCatCat}
+                cats={this.state.cats}
                 user={this.state.user}
                 logOut={this.logOut}
+                deleteCat={this.deleteCat}
                 {...routerProps}
               />
             )}

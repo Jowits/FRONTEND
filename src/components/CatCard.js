@@ -16,11 +16,13 @@ class CatCard extends React.Component {
   state = {
     text: "",
     cat_id: null,
-    toggleShowDetails: false
+    toggleShowDetails: false,
+    reviews: []
   };
 
   componentDidMount() {
     this.setState({ cat_id: this.props.cat.id });
+    API.fetchReviews().then(reviews => this.setState({ reviews }));
   }
 
   setReceiverAndRedirect = user => {
@@ -32,20 +34,18 @@ class CatCard extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSubmit = () => {
-    const review = this.state;
-    API.createReview(review).then(window.location.reload());
+  handleSubmit = review => {
+    const newReview = this.state;
+    API.createReview(newReview);
+    if (!this.state.reviews.includes(review))
+      this.setState({ text: [...this.state.reviews, review] });
   };
 
-  // filterUserCats = () => {
-  //      this.props.cats.filter(cat => cat.user_id === this.props.user_id)
-  // }
+  // updateUserState = cat => {
+  //   if (!this.state.user.cats.includes(cat))
+  //     this.setState({ cats: [...this.state.user.cats, cat] });
+  // };
 
-  //   catMenu = () =>  _.map(this.state.cat_id, (state, index) => ({
-  //   key: addressDefinitions.state_abbr[index],
-  //   text: name,
-  //   value: addressDefinitions.state_abbr[index],
-  // }))
   toggleShowDetails = () =>
     this.setState({ showDetails: !this.state.showDetails });
 
@@ -73,7 +73,9 @@ class CatCard extends React.Component {
                 Comments
               </Header>
               <Comment.Content>
-                <Comment.Author as="a">{}</Comment.Author>
+                <Comment.Author>
+                  <h3>{this.props.cat.user.username}</h3>
+                </Comment.Author>
                 <Comment.Text>
                   {this.props.cat.reviews.map(review => (
                     <h4>{review.text}</h4>
@@ -90,29 +92,33 @@ class CatCard extends React.Component {
     if (!this.props.cat) return <div></div>;
     return (
       <>
-      <Grid.Column className="catCard" width={3}>
-        <Card >
-          <Image wrapped ui={false}  src={this.props.cat.image} size='small'/>
-          <Card.Content>
-            <Card.Header>
-              {this.props.cat.name} <Icon name="paw" />
-            </Card.Header>
+        <Grid.Column className="catCard" width={3}>
+          <Card>
+            <Image wrapped ui={false} src={this.props.cat.image} size="small" />
             <Card.Content>
-              <Card.Description>{this.props.cat.description}</Card.Description>
+              <Card.Header>
+                {this.props.cat.name} <Icon name="paw" />
+              </Card.Header>
+              <Card.Content>
+                <Card.Description>
+                  {this.props.cat.description}
+                </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
+                <Button
+                  onClick={() =>
+                    this.setReceiverAndRedirect(this.props.cat.user)
+                  }
+                >
+                  Book Cat!
+                </Button>
+                <Button onClick={this.toggleShowDetails}>
+                  {this.state.showDetails ? "hide" : "Review me!"}
+                </Button>
+                <div>{this.state.showDetails && this.bookCat()}</div>
+              </Card.Content>
             </Card.Content>
-            <Card.Content extra>
-              <Button
-                onClick={() => this.setReceiverAndRedirect(this.props.cat.user)}
-              >
-                Book Cat!
-              </Button>
-              <Button onClick={this.toggleShowDetails}>
-                {this.state.showDetails ? "hide" : "Review me!"}
-              </Button>
-              <div>{this.state.showDetails && this.bookCat()}</div>
-            </Card.Content>
-          </Card.Content>
-        </Card>
+          </Card>
         </Grid.Column>
       </>
     );

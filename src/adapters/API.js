@@ -154,13 +154,12 @@ const postReview = review =>
 
 const clearToken = () => localStorage.removeItem("token");
 
-const deleteCat = (id) => {
-    return fetch(`${catsUrl}/${id}`, {
-        method: 'DELETE',
-        headers: 
-            {'Authorization': localStorage.getItem('token')}
-        })
-}
+const deleteCat = id => {
+  return fetch(`${catsUrl}/${id}`, {
+    method: "DELETE",
+    headers: { Authorization: localStorage.getItem("token") }
+  }).then(resp => resp.json());
+};
 
 export default {
   signUp,

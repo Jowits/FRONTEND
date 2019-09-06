@@ -6,16 +6,33 @@ import Profile from "../components/Profile";
 import CatForm from "../components/CatForm";
 import EmailForm from "../components/EmailForm";
 import CatContainer from "../containers/CatContainer";
+import API from "../adapters/API.js";
 
 class MainPage extends React.Component {
   state = {
-    receiver: ""
+    receiver: "",
+    search: ""
   };
 
   setsReceiver = user => {
     this.setState({
       receiver: user
     });
+  };
+
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
+
+  filterSearch = () => {
+    if (this.state.search) {
+      return this.state.cats.filter(cat =>
+        cat.address.toLowerCase().includes(this.state.search.toLowerCase())
+      );
+    }
+    return this.props.cats;
   };
 
   render() {
@@ -36,26 +53,32 @@ class MainPage extends React.Component {
         <Route
           path={"/profile/:id"}
           render={routerProps => (
-            <Profile user={this.props.user} {...routerProps} />
+            <Profile
+              cats={this.props.cats}
+              user={this.props.user}
+              deleteCat={this.props.deleteCat}
+              {...routerProps}
+            />
           )}
         />
         <Route
           path={"/add-cat"}
           render={routerProps => (
-            <CatForm user={this.props.user} {...routerProps} />
+            <CatForm
+              updateUserState={this.props.updateUserState}
+              updateCatCat={this.props.updateCatCat}
+              cats={this.props.cats}
+              user={this.props.user}
+              {...routerProps}
+            />
           )}
         />
-        {/* <Route
-          path={"/"}
-          render={routerProps => (
-            <CatCard user={this.props.user} {...routerProps}  />
-          )}
-        /> */}
         <Route
           exact
           path={"/"}
           render={routerProps => (
             <CatContainer
+              cats={this.props.cats}
               setReceiver={this.setsReceiver}
               user={this.props.user}
               {...routerProps}
@@ -73,7 +96,6 @@ class MainPage extends React.Component {
             />
           )}
         />
-        {/* <CatCard /> */}
       </>
     );
   }

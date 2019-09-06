@@ -50,7 +50,7 @@ export default class EmailForm extends Component {
       .then(res => {
         this.setState({
           formEmailSent: true
-        });
+        }).then(alert("Message send!"));
       })
       // Handle errors here however you like
       .catch(err => console.error("Failed to send feedback. Error: ", err));
@@ -62,11 +62,19 @@ export default class EmailForm extends Component {
         <Form onSubmit={this.handleSubmit}>
           <Form.Field>
             <label>Receiver</label>
-            <input disabled placeholder="Username" value={this.props.receiver.username} />
+            <input
+              disabled
+              placeholder="Username"
+              value={this.props.receiver.username}
+            />
           </Form.Field>
           <Form.Field>
             <label>Email</label>
-            <input disabled placeholder="Receiver" value={this.props.receiver.email} />
+            <input
+              disabled
+              placeholder="Receiver"
+              value={this.props.receiver.email}
+            />
           </Form.Field>
           <Form.Field>
             <Form.TextArea
