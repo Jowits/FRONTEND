@@ -50,8 +50,9 @@ export default class EmailForm extends Component {
       .then(res => {
         this.setState({
           formEmailSent: true
-        }).then(alert("Message send!"));
+        });
       })
+      .then(alert("Message send!"))
       // Handle errors here however you like
       .catch(err => console.error("Failed to send feedback. Error: ", err));
   }

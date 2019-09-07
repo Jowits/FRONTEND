@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+
 import {
   Card,
   Icon,
@@ -41,6 +41,7 @@ class CatCard extends React.Component {
   };
 
   // map over reviews to get only cats reviews#########################################################
+
   handleSubmit = () => {
     const newReview = this.state;
     API.createReview(newReview).then(() => {
@@ -76,11 +77,14 @@ class CatCard extends React.Component {
               </Header>
               <Comment.Content>
                 <Comment.Text>
-                  {this.state.reviews.map(review => (
-                    <h4>
-                      {review.user.username} - {review.text}
-                    </h4>
-                  ))}
+                  {this.state.reviews
+                    .filter(review => review.cat.id === this.state.cat.id)
+                    .map(review => (
+                      <h4>
+                        <Comment.Author>{review.user.username}</Comment.Author>{" "}
+                        <Comment.Text>{review.text}</Comment.Text>
+                      </h4>
+                    ))}
                 </Comment.Text>
               </Comment.Content>
             </Comment>
@@ -93,34 +97,28 @@ class CatCard extends React.Component {
     if (!this.props.cat) return <div></div>;
     return (
       <>
-        <Grid.Column className="catCard" width={3}>
-          <Card>
-            <Image wrapped ui={false} src={this.props.cat.image} size="small" />
+        <Card className="CatCard">
+          <Image wrapped ui={false} src={this.props.cat.image} size="small" />
+          <Card.Content>
+            <Card.Header>
+              {this.props.cat.name} <Icon name="paw" />
+            </Card.Header>
             <Card.Content>
-              <Card.Header>
-                {this.props.cat.name} <Icon name="paw" />
-              </Card.Header>
-              <Card.Content>
-                <Card.Description>
-                  {this.props.cat.description}
-                </Card.Description>
-              </Card.Content>
-              <Card.Content extra>
-                <Button
-                  onClick={() =>
-                    this.setReceiverAndRedirect(this.props.cat.user)
-                  }
-                >
-                  Book Cat!
-                </Button>
-                <Button onClick={this.toggleShowDetails}>
-                  {this.state.showDetails ? "hide" : "Review me!"}
-                </Button>
-                <div>{this.state.showDetails && this.bookCat()}</div>
-              </Card.Content>
+              <Card.Description>{this.props.cat.description}</Card.Description>
             </Card.Content>
-          </Card>
-        </Grid.Column>
+            <Card.Content extra>
+              <Button
+                onClick={() => this.setReceiverAndRedirect(this.props.cat.user)}
+              >
+                Book Cat!
+              </Button>
+              <Button onClick={this.toggleShowDetails}>
+                {this.state.showDetails ? "hide" : "Review me!"}
+              </Button>
+              <div>{this.state.showDetails && this.bookCat()}</div>
+            </Card.Content>
+          </Card.Content>
+        </Card>
       </>
     );
   }

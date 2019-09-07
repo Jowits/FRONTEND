@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Icon, Label, Grid, Image, Button } from "semantic-ui-react";
+import { Card, Icon } from "semantic-ui-react";
 import API from "../adapters/API";
 import UserCatCard from "../components/UserCatCard";
 
@@ -44,8 +44,8 @@ class Profile extends React.Component {
             </a>
           </Card.Content>
         </Card>
-        {this.props.user.cats.map(c => (
-          <UserCatCard cat={c} deleteCat={this.props.deleteCat} />
+        {this.props.user.cats.map(cat => (
+          <UserCatCard cat={cat} deleteCat={this.props.deleteCat} />
         ))}
       </Card.Group>
     );

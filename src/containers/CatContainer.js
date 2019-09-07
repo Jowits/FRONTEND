@@ -1,5 +1,4 @@
 import React from "react";
-import API from "../adapters/API.js";
 import FilteredCats from "../components/FilteredCats";
 
 class CatContainer extends React.Component {

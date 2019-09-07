@@ -6,7 +6,6 @@ import Profile from "../components/Profile";
 import CatForm from "../components/CatForm";
 import EmailForm from "../components/EmailForm";
 import CatContainer from "../containers/CatContainer";
-import API from "../adapters/API.js";
 
 class MainPage extends React.Component {
   state = {
@@ -39,7 +38,17 @@ class MainPage extends React.Component {
     if (!this.props.user) return <div></div>;
     return (
       <>
-        <NavBar />
+        {/*  */}
+        <Route
+          path={"/"}
+          render={routerProps => (
+            <NavBar
+              routerProps={routerProps}
+              logOut={this.props.logOut}
+              user={this.props.user}
+            />
+          )}
+        />
         <Route
           path={"/menu"}
           render={routerProps => (

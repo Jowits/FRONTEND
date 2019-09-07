@@ -1,7 +1,9 @@
-html, body, app-root  {
+html,
+body,
+app-root {
   height: 100%;
   margin: 0;
-  }
+}
 
 div.inventory-body {
   height: 100%;
@@ -16,7 +18,7 @@ div.inventory-body {
   background-size: 100%;
   background-position: center;
   background-size: cover;
-  }
+}
 
 div.ui.segment {
   background-color: rgba(241, 232, 232, 0.5);
@@ -28,13 +30,13 @@ div.ui.segment {
   border: none;
 }
 
-.ui.orange.button, .ui.orange.buttons.button {
+.ui.orange.button,
+.ui.orange.buttons.button {
   display: block;
-  width:10em;
+  width: 10em;
   height: 3em;
   margin: auto;
   margin-top: 2em;
-
 }
 
 a {
@@ -55,7 +57,6 @@ div.ui.header.logo {
 
 .navbar {
   height: 6em;
-
 }
 
 div.ui.item.catzButton {
@@ -66,26 +67,18 @@ div.ui.item.catzButton {
 div.item {
   width: 20em;
 }
-div.ui.item{
+div.ui.item {
   width: 6em;
   font-size: 1.5em;
 }
-.cardSize {
-  widows: 10em;
-}
 
-.catCard {
-  margin: 1em;
-  text-align: center;
-}
 button.ui.button {
   width: 9em;
   height: 40px;
   font-size: 1.01em;
-
 }
 
-Label.label {
+label.label {
   font-size: 1em;
   margin: 0.5em;
 }
@@ -95,5 +88,4 @@ Label.label {
   width: 20em;
   font-size: 2em;
   text-align: center;
-
 }
