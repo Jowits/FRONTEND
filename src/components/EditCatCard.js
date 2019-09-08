@@ -30,8 +30,9 @@ class EditCatCard extends Component {
     });
   };
 
-  handleSubmit = () => {
-    fetch(catsUrl + `/${this.state.id}`, {
+  handleSubmit = e => {
+    // e.preventDefault();
+    return fetch(catsUrl + `/${this.state.id}`, {
       method: "PATCH",
       headers: {
         Authorization: localStorage.getItem("token"),

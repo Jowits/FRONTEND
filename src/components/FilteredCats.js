@@ -7,10 +7,10 @@ class FilteredCats extends React.Component {
     const { history, location, match } = this.props;
     const routerProps = { history, location, match };
     return (
-      <Grid>
-        <Grid.Row centered columns={3}>
-          <Grid.Column>
-            <Card.Group centered itemsPerRow={4}>
+      <Grid verticalAlign centered container columns="equal" stackable>
+        <Grid.Row stretched>
+          <Grid.Column centered width={13}>
+            <Card.Group>
               {this.props.cats.map(cat => (
                 <CatCard
                   user={this.props.user}

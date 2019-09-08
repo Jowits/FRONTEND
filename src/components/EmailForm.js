@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import { Form, Button } from "semantic-ui-react";
+import { Form, Button, Grid } from "semantic-ui-react";
 
 export default class EmailForm extends Component {
   state = {
@@ -59,37 +59,41 @@ export default class EmailForm extends Component {
 
   render() {
     return (
-      <div>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Field>
-            <label>Receiver</label>
-            <input
-              disabled
-              placeholder="Username"
-              value={this.props.receiver.username}
-            />
-          </Form.Field>
-          <Form.Field>
-            <label>Email</label>
-            <input
-              disabled
-              placeholder="Receiver"
-              value={this.props.receiver.email}
-            />
-          </Form.Field>
-          <Form.Field>
-            <Form.TextArea
-              onChange={this.handleChange}
-              value={this.state.feedback}
-              name="text"
-              placeholder="Play-date time!"
-            />
-          </Form.Field>
-          <Button value="Submit" type="submit">
-            Submit
-          </Button>
-        </Form>
-      </div>
+      <>
+        <Grid centered columns={2}>
+          <Grid.Column>
+            <Form onSubmit={this.handleSubmit}>
+              <Form.Field>
+                <label>Receiver</label>
+                <input
+                  disabled
+                  placeholder="Username"
+                  value={this.props.receiver.username}
+                />
+              </Form.Field>
+              <Form.Field>
+                <label>Email</label>
+                <input
+                  disabled
+                  placeholder="Receiver"
+                  value={this.props.receiver.email}
+                />
+              </Form.Field>
+              <Form.Field>
+                <Form.TextArea
+                  onChange={this.handleChange}
+                  value={this.state.feedback}
+                  name="text"
+                  placeholder="Play-date time!"
+                />
+              </Form.Field>
+              <Button value="Submit" type="submit">
+                Submit
+              </Button>
+            </Form>
+          </Grid.Column>
+        </Grid>
+      </>
     );
   }
 }

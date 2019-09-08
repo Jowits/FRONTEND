@@ -49,7 +49,7 @@ class MainPage extends React.Component {
             />
           )}
         />
-        <Route
+        {/* <Route
           path={"/menu"}
           render={routerProps => (
             <Menu
@@ -58,7 +58,7 @@ class MainPage extends React.Component {
               user={this.props.user}
             />
           )}
-        />
+        /> */}
         <Route
           path={"/profile/:id"}
           render={routerProps => (

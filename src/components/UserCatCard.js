@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Icon, Button, Image } from "semantic-ui-react";
+import { Card, Icon, Button, Image, Grid } from "semantic-ui-react";
 import EditCatCard from "../components/EditCatCard";
 
 class UserCatCard extends Component {
@@ -30,24 +30,28 @@ class UserCatCard extends Component {
     const cat = this.props.cat;
 
     return (
-      <Card>
-        <Image wrapped ui={false} src={cat.image} size="small" />
-        <Card.Content>
-          <Card.Header>
-            {cat.name} <Icon name="paw" />
-          </Card.Header>
-        </Card.Content>
-        <Card.Content>
-          <Card.Description>{cat.description}</Card.Description>
-        </Card.Content>
-        <Card.Content>
-          <Button onClick={() => this.props.deleteCat(cat.id)}>
-            Delete Cat
-          </Button>
-          <Button onClick={() => this.handleEdit()}>Edit</Button>
-          {this.renderContent()}
-        </Card.Content>
-      </Card>
+      <Card.Group>
+        <Card class="catCards">
+          <Card.Content>
+            <Image wrapped ui={false} src={cat.image} size="small" />
+            <Card.Content>
+              <Card.Header>
+                {cat.name} <Icon name="paw" />
+              </Card.Header>
+            </Card.Content>
+            <Card.Content>
+              <Card.Description>{cat.description}</Card.Description>
+            </Card.Content>
+            <Card.Content>
+              <Button onClick={() => this.props.deleteCat(cat.id)}>
+                Delete Cat
+              </Button>
+              <Button onClick={() => this.handleEdit()}>Edit</Button>
+              {this.renderContent()}
+            </Card.Content>
+          </Card.Content>
+        </Card>
+      </Card.Group>
     );
   }
 }

@@ -73,10 +73,10 @@ class CatCard extends React.Component {
           <Comment.Group>
             <Comment>
               <Header as="h3" dividing>
-                Comments
+                Reviews
               </Header>
               <Comment.Content>
-                <Comment.Text>
+                <Comment.Content>
                   {this.state.reviews
                     .filter(review => review.cat.id === this.state.cat.id)
                     .map(review => (
@@ -85,7 +85,7 @@ class CatCard extends React.Component {
                         <Comment.Text>{review.text}</Comment.Text>
                       </h4>
                     ))}
-                </Comment.Text>
+                </Comment.Content>
               </Comment.Content>
             </Comment>
           </Comment.Group>
@@ -112,6 +112,8 @@ class CatCard extends React.Component {
               >
                 Book Cat!
               </Button>
+            </Card.Content>
+            <Card.Content>
               <Button onClick={this.toggleShowDetails}>
                 {this.state.showDetails ? "hide" : "Review me!"}
               </Button>
