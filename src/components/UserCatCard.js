@@ -30,8 +30,12 @@ class UserCatCard extends Component {
 
     return (
       <>
-        <Card.Group size="medium" className="profile">
-          <Card color="orange" fluid>
+        <Card.Group
+          style={{ margin: "2em", display: "block" }}
+          size="medium"
+          className="profile"
+        >
+          <Card style={{ height: "20em", width: "20em" }} color="orange" fluid>
             <Card.Content>
               <Image wrapped ui={false} src={cat.image} />
               <Card.Content>

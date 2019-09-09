@@ -79,14 +79,12 @@ label.label {
 }
 
 .ui.cards.profile {
-  height: 20em;
-  width: 20em;
   font-size: 2em;
   text-align: center;
   margin-top: 2em;
   margin-bottom: 2em;
   display: inline-flex;
-  margin-left: 7em;
+  margin-left: 5em;
 }
 
 .menu {
@@ -96,8 +94,8 @@ label.label {
 .ui.card .content img,
 .ui.cards > .card .content img {
   display: inline-block;
-  width: 310px;
-  height: 310px;
+  width: 270px;
+  height: 270px;
   margin: 1em;
 }
 
@@ -109,12 +107,13 @@ label.label {
   margin: 1em;
 }
 .ui.cards.userCatCard {
-  @max-width: 400px
   font-size: 2em;
   text-align: center;
   margin: 1em;
 }
 
-/* .catForm {
-  font-size: 3em;
-} */
+.ui.card > .content,
+.ui.cards > .card > .content {
+  text-align: center;
+  font-size: 2em;
+}

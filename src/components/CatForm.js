@@ -29,8 +29,11 @@ class CatForm extends React.Component {
           <Grid.Column>
             <Form onSubmit={() => this.handleSubmit(this.state)}>
               <Form.Field>
-                <label className="catForm">Image</label>
+                <label style={{ fontSize: "1.5em", margin: "0.5em" }}>
+                  Image
+                </label>
                 <input
+                  style={{ height: "4em" }}
                   name="image"
                   placeholder="Image"
                   value={this.state.image}
@@ -38,8 +41,11 @@ class CatForm extends React.Component {
                 />
               </Form.Field>
               <Form.Field>
-                <label className="catForm">Name</label>
+                <label style={{ fontSize: "1.5em", margin: "0.5em" }}>
+                  Name
+                </label>
                 <input
+                  style={{ height: "4em" }}
                   name="name"
                   placeholder="Name"
                   value={this.state.name}
@@ -47,8 +53,11 @@ class CatForm extends React.Component {
                 />
               </Form.Field>
               <Form.Field>
-                <label className="catForm">Area</label>
+                <label style={{ fontSize: "1.5em", margin: "0.5em" }}>
+                  Area
+                </label>
                 <input
+                  style={{ height: "4em" }}
                   name="address"
                   placeholder="Area"
                   value={this.state.address}
@@ -56,15 +65,23 @@ class CatForm extends React.Component {
                 />
               </Form.Field>
               <Form.Field>
-                <label className="catForm">Description</label>
+                <label style={{ fontSize: "1.5em", margin: "0.5em" }}>
+                  Description
+                </label>
                 <input
+                  style={{ height: "4em" }}
                   name="description"
                   placeholder="Description"
                   value={this.state.description}
                   onChange={this.handleChange}
                 />
               </Form.Field>
-              <Button type="submit">Submit</Button>
+              <Button
+                style={{ fontSize: "2em", paddingBottom: "0.5em" }}
+                type="submit"
+              >
+                Submit
+              </Button>
             </Form>
           </Grid.Column>
         </Grid>

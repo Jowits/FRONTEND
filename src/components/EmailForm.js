@@ -64,30 +64,48 @@ export default class EmailForm extends Component {
           <Grid.Column>
             <Form onSubmit={this.handleSubmit}>
               <Form.Field>
-                <label className="catForm">Receiver</label>
+                <label style={{ fontSize: "1.5em", margin: "0.5em" }}>
+                  Receiver
+                </label>
                 <input
+                  style={{ fontSize: "1.5em", margin: "0.5em" }}
                   disabled
                   placeholder="Username"
                   value={this.props.receiver.username}
                 />
               </Form.Field>
               <Form.Field>
-                <label className="catForm">Email</label>
+                <label style={{ fontSize: "1.5em", margin: "0.5em" }}>
+                  Email
+                </label>
                 <input
+                  style={{ fontSize: "1.5em", margin: "0.5em" }}
                   disabled
                   placeholder="Receiver"
                   value={this.props.receiver.email}
                 />
               </Form.Field>
               <Form.Field>
+                <label style={{ fontSize: "1.5em", margin: "0.5em" }}>
+                  Play-date time!
+                </label>
                 <Form.TextArea
+                  style={{ fontSize: "1.5em", margin: "0.5em" }}
                   onChange={this.handleChange}
                   value={this.state.feedback}
                   name="text"
                   placeholder="Play-date time!"
                 />
               </Form.Field>
-              <Button value="Submit" type="submit">
+              <Button
+                style={{
+                  fontSize: "2em",
+                  paddingBottom: "0.5em",
+                  marginLeft: "0.55em"
+                }}
+                value="Submit"
+                type="submit"
+              >
                 Submit
               </Button>
             </Form>
