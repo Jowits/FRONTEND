@@ -24,19 +24,23 @@ class App extends React.Component {
     });
     API.fetchCats().then(data =>
       this.setState({
-        cats: data.filter(cat => cat.user.id !== this.state.user.id)
+        cats: data
       })
     );
   }
 
   updateUserState = cat => {
-    if (!this.state.user.cats.includes(cat))
-      this.setState({ cats: [...this.state.user.cats, cat] });
-  };
-
-  updateCatCat = cat => {
-    if (!this.state.cats.includes(cat))
-      this.setState({ user: { ...this.state.user, cat } });
+    if (!this.state.cats.filter(c => c.id === cat.id).length) {
+      let cats = this.state.user.cats.filter(c => c.id !== cat.id);
+      cats.push(cat);
+      this.setState({ cats: [...this.state.cats, cat] });
+    }
+    if (!!this.state.user.cats.filter(c => c.id === cat.id).length) {
+      let cats = this.state.user.cats.filter(c => c.id !== cat.id);
+      const { email, id, address, username, _userCats } = this.state.user;
+      cats.push(cat);
+      this.setState({ user: { email, id, address, username, cats } });
+    }
   };
 
   deleteCat = id => {
@@ -112,7 +116,6 @@ class App extends React.Component {
             render={routerProps => (
               <MainPage
                 updateUserState={this.updateUserState}
-                updateCatCat={this.updateCatCat}
                 cats={this.state.cats}
                 user={this.state.user}
                 logOut={this.logOut}

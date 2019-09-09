@@ -7,14 +7,17 @@ const NavBar = ({ logOut, user }) => {
     <div className="ui inverted  menu navbar">
       <div className="ui item catzButton">
         {" "}
-        <Link to={`/`}> Catz-Play </Link>{" "}
+        <Link style={{ color: "orange" }} to={`/`}>
+          {" "}
+          Catz-Play{" "}
+        </Link>{" "}
       </div>
       <div className="right menu">
         {/* <Menu.Item>
           <Input icon="search" placeholder="Search cats..." />
         </Menu.Item> */}
         <Menu.Item fixed="right" size="small">
-          <Dropdown width={2} text="Menu">
+          <Dropdown style={{ color: "orange" }} width={2} text="Menu">
             <Dropdown.Menu>
               <Dropdown.Item
                 as={Link}

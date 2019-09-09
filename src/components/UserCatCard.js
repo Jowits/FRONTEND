@@ -20,7 +20,6 @@ class UserCatCard extends Component {
           handleEdit={this.handleEdit}
           cancelChanges={this.props.cancelChanges}
           updateUserState={this.props.updateUserState}
-          updateCatCat={this.props.updateCatCat}
         />
       );
     }
@@ -31,17 +30,25 @@ class UserCatCard extends Component {
 
     return (
       <>
-        <Card.Group>
-          <Card>
+        <Card.Group size="medium" className="profile">
+          <Card color="orange" fluid>
             <Card.Content>
-              <Image wrapped ui={false} src={cat.image} size="small" />
+              <Image wrapped ui={false} src={cat.image} />
               <Card.Content>
-                <Card.Header>
-                  {cat.name} <Icon name="paw" />
+                <Card.Header textAlign="center">
+                  <h2>{cat.name}</h2>
                 </Card.Header>
               </Card.Content>
               <Card.Content>
-                <Card.Description>{cat.description}</Card.Description>
+                <Card.Description textAlign="center">
+                  <h3>{cat.address}</h3>
+                  <Icon name="paw" />
+                </Card.Description>
+              </Card.Content>
+              <Card.Content>
+                <Card.Description textAlign="center">
+                  <h4>{cat.description}</h4>
+                </Card.Description>
               </Card.Content>
               <Card.Content>
                 <Button onClick={() => this.props.deleteCat(cat.id)}>

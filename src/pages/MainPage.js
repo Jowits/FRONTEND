@@ -25,14 +25,18 @@ class MainPage extends React.Component {
     });
   };
 
-  filterSearch = () => {
-    if (this.state.search) {
-      return this.state.cats.filter(cat =>
-        cat.address.toLowerCase().includes(this.state.search.toLowerCase())
-      );
-    }
-    return this.props.cats;
+  filterCats = props => {
+    return this.props.cats.filter(cat => cat.user.id !== this.props.user.id);
   };
+
+  // filterSearch = () => {
+  //   if (this.state.search) {
+  //     return this.state.cats.filter(cat =>
+  //       cat.address.toLowerCase().includes(this.state.search.toLowerCase())
+  //     );
+  //   }
+  //   return this.props.cats;
+  // };
 
   render() {
     if (!this.props.user) return <div></div>;
@@ -63,6 +67,7 @@ class MainPage extends React.Component {
           path={"/profile/:id"}
           render={routerProps => (
             <Profile
+              updateUserState={this.props.updateUserState}
               cats={this.props.cats}
               user={this.props.user}
               deleteCat={this.props.deleteCat}
@@ -75,7 +80,6 @@ class MainPage extends React.Component {
           render={routerProps => (
             <CatForm
               updateUserState={this.props.updateUserState}
-              updateCatCat={this.props.updateCatCat}
               cats={this.props.cats}
               user={this.props.user}
               {...routerProps}
@@ -87,7 +91,8 @@ class MainPage extends React.Component {
           path={"/"}
           render={routerProps => (
             <CatContainer
-              cats={this.props.cats}
+              updateUserState={this.props.updateUserState}
+              cats={this.filterCats()}
               setReceiver={this.setsReceiver}
               user={this.props.user}
               {...routerProps}

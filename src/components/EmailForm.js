@@ -64,7 +64,7 @@ export default class EmailForm extends Component {
           <Grid.Column>
             <Form onSubmit={this.handleSubmit}>
               <Form.Field>
-                <label>Receiver</label>
+                <label className="catForm">Receiver</label>
                 <input
                   disabled
                   placeholder="Username"
@@ -72,7 +72,7 @@ export default class EmailForm extends Component {
                 />
               </Form.Field>
               <Form.Field>
-                <label>Email</label>
+                <label className="catForm">Email</label>
                 <input
                   disabled
                   placeholder="Receiver"

@@ -94,33 +94,43 @@ class CatCard extends React.Component {
     if (!this.props.cat) return <div></div>;
     return (
       <>
-        <Card className="CatCard">
-          <Image wrapped ui={false} src={this.props.cat.image} size="small" />
-          <Card.Content>
-            <Card.Header>
-              {this.props.cat.name} <Icon name="paw" />
-            </Card.Header>
+        <Card.Group className="profile">
+          <Card color="orange" raised fluid>
+            <Image wrapped ui={false} src={this.props.cat.image} size="small" />
             <Card.Content>
-              <Card.Description>{this.props.cat.user.address}</Card.Description>
+              <Card.Header textAlign="center">
+                <h2>{this.props.cat.name}</h2>
+              </Card.Header>
+              <Card.Content>
+                <Card.Description textAlign="center">
+                  <h3>{this.props.cat.user.address}</h3>
+                  <Icon name="paw" />
+                </Card.Description>
+              </Card.Content>
+              <Card.Content>
+                <Card.Description textAlign="center">
+                  <h4>{this.props.cat.description}</h4>
+                </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
+                <Button
+                  fluid
+                  onClick={() =>
+                    this.setReceiverAndRedirect(this.props.cat.user)
+                  }
+                >
+                  Book Cat!
+                </Button>
+              </Card.Content>
+              <Card.Content>
+                <Button fluid onClick={this.toggleShowDetails}>
+                  {this.state.showDetails ? "hide" : "Review me!"}
+                </Button>
+                <div>{this.state.showDetails && this.bookCat()}</div>
+              </Card.Content>
             </Card.Content>
-            <Card.Content>
-              <Card.Description>{this.props.cat.description}</Card.Description>
-            </Card.Content>
-            <Card.Content extra>
-              <Button
-                onClick={() => this.setReceiverAndRedirect(this.props.cat.user)}
-              >
-                Book Cat!
-              </Button>
-            </Card.Content>
-            <Card.Content>
-              <Button onClick={this.toggleShowDetails}>
-                {this.state.showDetails ? "hide" : "Review me!"}
-              </Button>
-              <div>{this.state.showDetails && this.bookCat()}</div>
-            </Card.Content>
-          </Card.Content>
-        </Card>
+          </Card>
+        </Card.Group>
       </>
     );
   }

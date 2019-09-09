@@ -29,7 +29,7 @@ class CatForm extends React.Component {
           <Grid.Column>
             <Form onSubmit={() => this.handleSubmit(this.state)}>
               <Form.Field>
-                <label>Image</label>
+                <label className="catForm">Image</label>
                 <input
                   name="image"
                   placeholder="Image"
@@ -38,7 +38,7 @@ class CatForm extends React.Component {
                 />
               </Form.Field>
               <Form.Field>
-                <label>Name</label>
+                <label className="catForm">Name</label>
                 <input
                   name="name"
                   placeholder="Name"
@@ -47,7 +47,7 @@ class CatForm extends React.Component {
                 />
               </Form.Field>
               <Form.Field>
-                <label>Area</label>
+                <label className="catForm">Area</label>
                 <input
                   name="address"
                   placeholder="Area"
@@ -56,7 +56,7 @@ class CatForm extends React.Component {
                 />
               </Form.Field>
               <Form.Field>
-                <label>Description</label>
+                <label className="catForm">Description</label>
                 <input
                   name="description"
                   placeholder="Description"

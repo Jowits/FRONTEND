@@ -32,7 +32,7 @@ class EditCatCard extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    return fetch(catsUrl + `/${this.state.id}`, {
+    fetch(catsUrl + `/${this.state.id}`, {
       method: "PATCH",
       headers: {
         Authorization: localStorage.getItem("token"),
@@ -46,15 +46,16 @@ class EditCatCard extends Component {
         address: this.state.address,
         description: this.state.description
       })
-    }).then(resp => resp.json());
-    // .then(resp => this.updateUserState(resp))
-    // .then(resp => this.updateCatCat(resp));
+    })
+      .then(resp => resp.json())
+      .then(resp => this.props.updateUserState(resp));
   };
 
   render() {
     return (
       <Form onSubmit={this.handleSubmit} className="note-editor">
         <Form.Field>
+          <label className="catForm">Image</label>
           <Input
             type="text"
             name="image"
@@ -63,6 +64,7 @@ class EditCatCard extends Component {
           />
         </Form.Field>
         <Form.Field>
+          <label className="catForm">Name</label>
           <Input
             type="text"
             name="name"
@@ -79,6 +81,7 @@ class EditCatCard extends Component {
           />
         </Form.Field>
         <Form.Field>
+          <label className="catForm">Description</label>
           <TextArea
             name="description"
             value={this.state.description}

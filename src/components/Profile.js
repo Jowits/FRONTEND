@@ -54,6 +54,7 @@ class Profile extends React.Component {
         <Card.Group className="catCards">
           {this.props.user.cats.map(cat => (
             <UserCatCard
+              updateUserState={this.props.updateUserState}
               cat={cat}
               key={cat.id}
               deleteCat={this.props.deleteCat}
