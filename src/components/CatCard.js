@@ -5,7 +5,6 @@ import {
   Icon,
   Image,
   Button,
-  Grid,
   Form,
   Comment,
   Header
@@ -39,8 +38,6 @@ class CatCard extends React.Component {
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-
-  // map over reviews to get only cats reviews#########################################################
 
   handleSubmit = () => {
     const newReview = this.state;
@@ -103,6 +100,9 @@ class CatCard extends React.Component {
             <Card.Header>
               {this.props.cat.name} <Icon name="paw" />
             </Card.Header>
+            <Card.Content>
+              <Card.Description>{this.props.cat.user.address}</Card.Description>
+            </Card.Content>
             <Card.Content>
               <Card.Description>{this.props.cat.description}</Card.Description>
             </Card.Content>

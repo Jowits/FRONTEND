@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form, Input, TextArea } from "semantic-ui-react";
+import { Form, Input, Button, TextArea } from "semantic-ui-react";
 
 const catsUrl = "http://localhost:3000/api/v1/cats";
 
@@ -31,7 +31,7 @@ class EditCatCard extends Component {
   };
 
   handleSubmit = e => {
-    // e.preventDefault();
+    e.preventDefault();
     return fetch(catsUrl + `/${this.state.id}`, {
       method: "PATCH",
       headers: {
@@ -53,10 +53,7 @@ class EditCatCard extends Component {
 
   render() {
     return (
-      <Form
-        onSubmit={() => this.handleSubmit(this.state)}
-        className="note-editor"
-      >
+      <Form onSubmit={this.handleSubmit} className="note-editor">
         <Form.Field>
           <Input
             type="text"
@@ -88,9 +85,9 @@ class EditCatCard extends Component {
             onChange={this.handleChange}
           />
         </Form.Field>
-        <div className="button-row">
-          <Input className="button" type="submit" value="Save" />
-        </div>
+        <Button value="Submit" type="submit">
+          Submit
+        </Button>
       </Form>
     );
   }

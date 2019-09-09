@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "../components/NavBar";
-import Menu from "../components/Menu";
+// import Menu from "../components/Menu";
 import { Route } from "react-router-dom";
 import Profile from "../components/Profile";
 import CatForm from "../components/CatForm";

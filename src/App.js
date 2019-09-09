@@ -22,7 +22,11 @@ class App extends React.Component {
         this.setState({ user: data });
       }
     });
-    API.fetchCats().then(cats => this.setState({ cats }));
+    API.fetchCats().then(data =>
+      this.setState({
+        cats: data.filter(cat => cat.user.id !== this.state.user.id)
+      })
+    );
   }
 
   updateUserState = cat => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, Input, Dropdown } from "semantic-ui-react";
+import { Menu, Dropdown } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 const NavBar = ({ logOut, user }) => {
@@ -13,8 +13,8 @@ const NavBar = ({ logOut, user }) => {
         {/* <Menu.Item>
           <Input icon="search" placeholder="Search cats..." />
         </Menu.Item> */}
-        <Menu.Item position="right">
-          <Dropdown position="right" text="Menu">
+        <Menu.Item fixed="right" size="small">
+          <Dropdown width={2} text="Menu">
             <Dropdown.Menu>
               <Dropdown.Item
                 as={Link}
