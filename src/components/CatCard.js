@@ -8,7 +8,7 @@ import {
   Form,
   Comment,
   Header,
-  Container
+  Segment
 } from "semantic-ui-react";
 import API from "../adapters/API";
 
@@ -52,22 +52,23 @@ class CatCard extends React.Component {
 
   bookCat = () => {
     return (
-      <Container>
-        <Comment.Group>
+      <Segment style={{ background: "white" }}>
+        <Comment.Group style={{ background: "white", border: "orange" }}>
           <Form reply onSubmit={() => this.handleSubmit(this.state)}>
             <Form.TextArea
+              style={{ width: "20em", height: "8em" }}
               name="text"
               placeholder="text"
               value={this.state.text}
               onChange={this.handleChange}
             />
-            <Button value="Submit" type="submit">
+            <Button size="large" value="Submit" type="submit">
               Submit
             </Button>
           </Form>
 
           <Comment>
-            <Header as="h3" dividing>
+            <Header as="h2" dividing>
               Reviews
             </Header>
             <Comment.Content>
@@ -76,7 +77,9 @@ class CatCard extends React.Component {
                   .filter(review => review.cat.id === this.state.cat.id)
                   .map(review => (
                     <h4>
-                      <Comment.Author>{review.user.username}</Comment.Author>{" "}
+                      <Comment.Author style={{ color: "orange" }}>
+                        {review.user.username}
+                      </Comment.Author>{" "}
                       <Comment.Text>{review.text}</Comment.Text>
                     </h4>
                   ))}
@@ -84,7 +87,7 @@ class CatCard extends React.Component {
             </Comment.Content>
           </Comment>
         </Comment.Group>
-      </Container>
+      </Segment>
     );
   };
   render() {
