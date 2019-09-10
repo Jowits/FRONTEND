@@ -48,50 +48,44 @@ class EditCatCard extends Component {
       })
     })
       .then(resp => resp.json())
-      .then(resp => this.props.updateUserState(resp));
+      .then(resp => this.props.editCatInArray(resp));
   };
 
   render() {
     return (
-      <Form onSubmit={this.handleSubmit} className="note-editor">
-        <Form.Field>
-          <label className="catForm">Image</label>
-          <Input
-            type="text"
-            name="image"
-            value={this.state.image}
-            onChange={this.handleChange}
-          />
-        </Form.Field>
-        <Form.Field>
-          <label className="catForm">Name</label>
-          <Input
-            type="text"
-            name="name"
-            value={this.state.name}
-            onChange={this.handleChange}
-          />
-        </Form.Field>
-        <Form.Field>
-          <Input
-            type="text"
-            name="address"
-            value={this.state.address}
-            onChange={this.handleChange}
-          />
-        </Form.Field>
-        <Form.Field>
-          <label className="catForm">Description</label>
-          <TextArea
-            name="description"
-            value={this.state.description}
-            onChange={this.handleChange}
-          />
-        </Form.Field>
-        <Button value="Submit" type="submit">
-          Submit
-        </Button>
-      </Form>
+      <Form.Dropdown onSubmit={this.handleSubmit} className="note-editor">
+        <Form>
+          <Form.Field>
+            <label className="catForm">Image</label>
+            <Input
+              type="text"
+              name="image"
+              value={this.state.image}
+              onChange={this.handleChange}
+            />
+          </Form.Field>
+          <Form.Field>
+            <label className="catForm">Name</label>
+            <Input
+              type="text"
+              name="name"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
+          </Form.Field>
+          <Form.Field>
+            <label className="catForm">Description</label>
+            <TextArea
+              name="description"
+              value={this.state.description}
+              onChange={this.handleChange}
+            />
+          </Form.Field>
+          <Button centered value="Submit" type="submit">
+            Submit
+          </Button>
+        </Form>
+      </Form.Dropdown>
     );
   }
 }

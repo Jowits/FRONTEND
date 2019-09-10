@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Icon, Button, Image, Grid } from "semantic-ui-react";
+import { Card, Icon, Button, Image, Grid, Menu } from "semantic-ui-react";
 import EditCatCard from "../components/EditCatCard";
 
 class UserCatCard extends Component {
@@ -16,10 +16,11 @@ class UserCatCard extends Component {
       return (
         <EditCatCard
           handleSubmit={this.props.handleSubmit}
+          editCatInArray={this.props.editCatInArray}
           cat={this.props.cat}
           handleEdit={this.handleEdit}
-          cancelChanges={this.props.cancelChanges}
-          updateUserState={this.props.updateUserState}
+          filterUserCats={this.props.filterUserCats}
+          updateCatState={this.props.updateCatState}
         />
       );
     }
@@ -31,11 +32,11 @@ class UserCatCard extends Component {
     return (
       <>
         <Card.Group
-          style={{ margin: "2em", display: "block" }}
+          style={{ margin: "3em", display: "block" }}
           size="medium"
           className="profile"
         >
-          <Card style={{ height: "20em", width: "20em" }} color="orange" fluid>
+          <Card color="orange" fluid>
             <Card.Content>
               <Image wrapped ui={false} src={cat.image} />
               <Card.Content>

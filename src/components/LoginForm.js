@@ -11,57 +11,108 @@ const LoginForm = ({ submit, routerProps, user }) => {
 
   return (
     <div className="inventory-body">
-      <Grid className="inventory-body" columns={6}>
-        <Grid.Column>
-          <Header className="logo">Catz-Play</Header>
-          <Segment className="segment">
-            <Form
-              error={{ content: 'Please enter your first name', pointing: 'below' }}
-              className="form"
-              size="large"
-              onSubmit={e => {
-                e.preventDefault();
-                submit({ username, password });
-                setUsername("");
-                setPassword("");
-              }}
-            >
-              <Header as="h1" textAlign="center">
-                Let's start the fun!
-              </Header>
-              <Form.Input
-                // error={{ content: 'Please enter your username', pointing: 'below' }}
-                fluid
-                icon="user"
-                iconPosition="left"
-                placeholder="Username"
-                value={username}
-                onChange={e => setUsername(e.target.value)}
-              />
-              <Form.Input
-                // error={{ content: 'Please enter your password', pointing: 'below' }}
-                fluid
-                icon="lock"
-                iconPosition="left"
-                placeholder="Password"
-                type="password"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-              />
-              <Button color="orange">Login</Button>
-            </Form>
-            <Header as="h1" textAlign="center">
-              Not registered yet?
-            </Header>
-            <Button
-              onClick={() => routerProps.history.push("/signup")}
-              color="orange"
-            >
-              Sign Up
-            </Button>
-          </Segment>
-        </Grid.Column>
-      </Grid>
+      <Header
+        style={{
+          fontSize: "9em",
+          textAlign: "left",
+          margin: "0.2em"
+        }}
+      >
+        Catz-Play<i className="fas fa-cat"></i>
+      </Header>
+      <Segment
+        style={{
+          position: "absolute",
+          right: "15em",
+          top: "9em",
+          width: "25em",
+          height: "35em",
+          fontSize: "24px",
+          textAlign: "center"
+        }}
+      >
+        <Form
+          error={{
+            content: "Please enter your first name",
+            pointing: "below"
+          }}
+          className="form"
+          size="large"
+          onSubmit={e => {
+            e.preventDefault();
+            submit({ username, password });
+            setUsername("");
+            setPassword("");
+          }}
+        >
+          <Header
+            style={{
+              fontSize: "3em",
+              textAlign: "center",
+              margin: "1em"
+            }}
+          >
+            Let's play!
+          </Header>
+          <Form.Input
+            style={{
+              height: "5em",
+              width: "25em"
+            }}
+            centered
+            // error={{ content: 'Please enter your username', pointing: 'below' }}
+
+            icon="user"
+            iconPosition="left"
+            placeholder="Username"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
+          />
+          <Form.Input
+            style={{
+              height: "5em",
+              width: "25em"
+            }}
+            // error={{ content: 'Please enter your password', pointing: 'below' }}
+            centered
+            icon="lock"
+            iconPosition="left"
+            placeholder="Password"
+            type="password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+          />
+          <Button
+            style={{
+              fontSize: "1.5em",
+              height: "2.7em",
+              width: "9em",
+              margin: "1em"
+            }}
+            color="orange"
+            textAlign="center"
+          >
+            Login
+          </Button>
+        </Form>
+        <Header
+          style={{ fontSize: "1.5em", margin: "1.5em" }}
+          textAlign="center"
+        >
+          Not registered yet?
+        </Header>
+        <Button
+          style={{
+            height: "3em",
+            width: "10em",
+            margin: "1em"
+          }}
+          onClick={() => routerProps.history.push("/signup")}
+          color="orange"
+        >
+          Sign Up
+        </Button>
+      </Segment>
     </div>
   );
 };

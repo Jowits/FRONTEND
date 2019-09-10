@@ -4,62 +4,26 @@ import SignupForm from "./components/SignupForm";
 import LoginForm from "./components/LoginForm";
 import MainPage from "./pages/MainPage";
 import PageNotFound from "./pages/PageNotFound";
-import API from "./adapters/API";
 import { Route, Switch } from "react-router-dom";
 import "semantic-ui-css/semantic.min.css";
+import API from "./adapters/API";
 
 class App extends React.Component {
   state = {
-    user: undefined,
-    cats: []
+    user: undefined
   };
 
   componentDidMount() {
-    API.validateUser().then(data => {
-      if (data.error) {
-        this.props.history.push("/login");
-      } else {
-        this.setState({ user: data });
-      }
-    });
-    API.fetchCats().then(data =>
-      this.setState({
-        cats: data
-      })
-    );
-  }
-
-  updateUserState = cat => {
-    if (!this.state.cats.filter(c => c.id === cat.id).length) {
-      let cats = this.state.user.cats.filter(c => c.id !== cat.id);
-      cats.push(cat);
-      this.setState({ cats: [...this.state.cats, cat] });
-    }
-    if (!!this.state.user.cats.filter(c => c.id === cat.id).length) {
-      let cats = this.state.user.cats.filter(c => c.id !== cat.id);
-      const { email, id, address, username, _userCats } = this.state.user;
-      cats.push(cat);
-      this.setState({ user: { email, id, address, username, cats } });
-    }
-  };
-
-  deleteCat = id => {
-    API.deleteCat(id).then(data => {
-      const newCatArray = this.state.user.cats.filter(
-        cat => cat.id !== data.deleted_cat_id
-      );
-      this.setState({
-        user: {
-          ...this.state.user,
-          cats: newCatArray
-        },
-        cats: {
-          ...this.state.cats,
-          cats: newCatArray
+    if (localStorage.token) {
+      API.validateUser().then(data => {
+        if (data.error) {
+          this.props.history.push("/login");
+        } else {
+          this.setState({ user: data });
         }
       });
-    });
-  };
+    }
+  }
 
   signUp = user => {
     API.signUp(user).then(user =>
@@ -118,6 +82,7 @@ class App extends React.Component {
                 updateUserState={this.updateUserState}
                 cats={this.state.cats}
                 user={this.state.user}
+                // userCats={this.userCats()}
                 logOut={this.logOut}
                 deleteCat={this.deleteCat}
                 {...routerProps}

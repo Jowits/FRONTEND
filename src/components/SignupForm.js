@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Grid, Form, Input, Button, Message } from "semantic-ui-react";
+import { Grid, Form, Input, Button, Message, Header } from "semantic-ui-react";
 
 const SignupForm = ({ submit, routerProps, user }) => {
   const [username, setUsername] = useState("");
@@ -13,9 +13,20 @@ const SignupForm = ({ submit, routerProps, user }) => {
 
   return (
     <>
-      <Grid centered columns={2}>
+      <Grid style={{ margin: "15em" }} centered columns={2}>
         <Grid.Column>
+          <Header
+            style={{
+              fontSize: "5em",
+              textAlign: "center",
+              margin: "1em",
+              color: "orange"
+            }}
+          >
+            Add your details
+          </Header>
           <Form
+            style={{ heigth: "10em", widths: "15em" }}
             size="large"
             onSubmit={e => {
               e.preventDefault();
@@ -28,6 +39,7 @@ const SignupForm = ({ submit, routerProps, user }) => {
           >
             <Form.Group widths="equal">
               <Form.Field
+                style={{ fontSize: "1.5em" }}
                 id="form-input-control-username"
                 control={Input}
                 label="Username"
@@ -36,6 +48,7 @@ const SignupForm = ({ submit, routerProps, user }) => {
                 onChange={e => setUsername(e.target.value)}
               />
               <Form.Field
+                style={{ fontSize: "1.5em" }}
                 id="form-input-control-address"
                 control={Input}
                 label="Area"
@@ -44,6 +57,7 @@ const SignupForm = ({ submit, routerProps, user }) => {
                 onChange={e => setAddress(e.target.value)}
               />
               <Form.Field
+                style={{ fontSize: "1.5em" }}
                 id="form-input-control-email"
                 control={Input}
                 label="Email"
@@ -52,6 +66,7 @@ const SignupForm = ({ submit, routerProps, user }) => {
                 onChange={e => setEmail(e.target.value)}
               />
               <Form.Field
+                style={{ fontSize: "1.5em" }}
                 id="form-input-control-password"
                 control={Input}
                 label="Password"
@@ -60,14 +75,19 @@ const SignupForm = ({ submit, routerProps, user }) => {
                 value={password}
                 onChange={e => setPassword(e.target.value)}
               />
-              <Button color="blue" fluid size="large">
-                Join Catz-Play
-              </Button>
             </Form.Group>
+            <Button fluid size="large">
+              Join Catz-Play
+            </Button>
           </Form>
-          <Message>
+          <Message style={{ fontSize: "1.5em", textAlign: "center" }}>
             Have an account?{" "}
-            <a onClick={() => routerProps.history.push("/login")}>Login</a>
+            <a
+              style={{ color: "orange", margin: "1em" }}
+              onClick={() => routerProps.history.push("/login")}
+            >
+              Login
+            </a>
           </Message>
         </Grid.Column>
       </Grid>

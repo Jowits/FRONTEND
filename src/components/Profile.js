@@ -19,9 +19,6 @@ class Profile extends React.Component {
     if (!this.props.user || !this.state.userProfile) return <div></div>;
     return (
       <>
-        {/* // <Grid centered verticalAlign="middle" container columns="equal" stackable>
-      //   <Grid.Row stretched>
-      //     <Grid.Column> */}
         <Card.Group className="profile">
           <Card fluid>
             <Card.Content>
@@ -49,23 +46,18 @@ class Profile extends React.Component {
             </Card.Content>
           </Card>
         </Card.Group>
-        {/* // <Grid.Row stretched>
-            //   <Grid.Column> */}
         <Card.Group className="catCards">
-          {this.props.user.cats.map(cat => (
+          {this.props.cats.map(cat => (
             <UserCatCard
-              updateUserState={this.props.updateUserState}
+              editCatInArray={this.props.editCatInArray}
+              filterUserCats={this.props.filterUserCats}
               cat={cat}
               key={cat.id}
               deleteCat={this.props.deleteCat}
+              updateCatState={this.props.updateCatState}
             />
           ))}
         </Card.Group>
-        {/* </Grid.Column>
-            </Grid.Row> */}
-        {/* //     </Grid.Column>
-      //   </Grid.Row>
-      // </Grid> */}
       </>
     );
   }

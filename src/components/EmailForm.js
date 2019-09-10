@@ -53,6 +53,7 @@ export default class EmailForm extends Component {
         });
       })
       .then(alert("Message send!"))
+      .then(this.props.history.push("/"))
       // Handle errors here however you like
       .catch(err => console.error("Failed to send feedback. Error: ", err));
   }

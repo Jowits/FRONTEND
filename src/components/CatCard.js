@@ -7,7 +7,8 @@ import {
   Button,
   Form,
   Comment,
-  Header
+  Header,
+  Container
 } from "semantic-ui-react";
 import API from "../adapters/API";
 
@@ -51,8 +52,8 @@ class CatCard extends React.Component {
 
   bookCat = () => {
     return (
-      <Card centered color="orange">
-        <Card.Content>
+      <Container>
+        <Comment.Group>
           <Form reply onSubmit={() => this.handleSubmit(this.state)}>
             <Form.TextArea
               name="text"
@@ -64,41 +65,38 @@ class CatCard extends React.Component {
               Submit
             </Button>
           </Form>
-          <Comment.Group>
-            <Comment>
-              <Header as="h3" dividing>
-                Reviews
-              </Header>
+
+          <Comment>
+            <Header as="h3" dividing>
+              Reviews
+            </Header>
+            <Comment.Content>
               <Comment.Content>
-                <Comment.Content>
-                  {this.state.reviews
-                    .filter(review => review.cat.id === this.state.cat.id)
-                    .map(review => (
-                      <h4>
-                        <Comment.Author>{review.user.username}</Comment.Author>{" "}
-                        <Comment.Text>{review.text}</Comment.Text>
-                      </h4>
-                    ))}
-                </Comment.Content>
+                {this.state.reviews
+                  .filter(review => review.cat.id === this.state.cat.id)
+                  .map(review => (
+                    <h4>
+                      <Comment.Author>{review.user.username}</Comment.Author>{" "}
+                      <Comment.Text>{review.text}</Comment.Text>
+                    </h4>
+                  ))}
               </Comment.Content>
-            </Comment>
-          </Comment.Group>
-        </Card.Content>
-      </Card>
+            </Comment.Content>
+          </Comment>
+        </Comment.Group>
+      </Container>
     );
   };
   render() {
     if (!this.props.cat) return <div></div>;
     return (
       <>
-        <Card.Group className="profile">
+        <Card.Group fluid centered className="profile">
           <Card
-            style={{ height: "24em", width: "22em", top: "0.5em" }}
+            style={{ height: "22em", width: "19em", top: "0.5em" }}
             color="orange"
-            raised
-            fluid
           >
-            <Image wrapped ui={false} src={this.props.cat.image} size="small" />
+            <Image wrapped ui={false} src={this.props.cat.image} />
             <Card.Content>
               <Card.Header textAlign="center">
                 <h2>{this.props.cat.name}</h2>
@@ -116,19 +114,23 @@ class CatCard extends React.Component {
               </Card.Content>
               <Card.Content extra>
                 <Button
-                  fluid
+                  style={{ width: "10em" }}
                   onClick={() =>
                     this.setReceiverAndRedirect(this.props.cat.user)
                   }
                 >
-                  Book Cat!
+                  Book a date!
                 </Button>
               </Card.Content>
               <Card.Content>
-                <Button fluid onClick={this.toggleShowDetails}>
+                <Button
+                  style={{ width: "10em" }}
+                  flex
+                  onClick={this.toggleShowDetails}
+                >
                   {this.state.showDetails ? "hide" : "Review me!"}
                 </Button>
-                <div>{this.state.showDetails && this.bookCat()}</div>
+                {this.state.showDetails && this.bookCat()}
               </Card.Content>
             </Card.Content>
           </Card>

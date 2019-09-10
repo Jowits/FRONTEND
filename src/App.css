@@ -13,30 +13,21 @@ div.inventory-body {
 .inventory-body {
   position: fixed;
   min-width: 100%;
-  background-image: url("background-cat.jpg");
+  background-image: url("KATTO01.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
-  background-size: cover;
 }
 
 div.ui.segment {
   background-color: rgba(241, 232, 232, 0.5);
-  position: absolute;
-  left: 105em;
-  top: 20em;
-  height: 35em;
-  width: 30em;
   border: none;
 }
 
 .ui.orange.button,
 .ui.orange.buttons.button {
-  display: block;
-  width: 10em;
-  height: 3em;
+  display: blockk;
   margin: auto;
-  margin-top: 2em;
 }
 
 a {
@@ -60,8 +51,9 @@ div.ui.header.logo {
 }
 
 div.ui.item.catzButton {
-  width: 7em;
-  font-size: 2em;
+  width: 9em;
+  font-size: 2.5em;
+  margin-left: 1em;
 }
 
 button.ui.button {
@@ -81,10 +73,8 @@ label.label {
 .ui.cards.profile {
   font-size: 2em;
   text-align: center;
-  margin-top: 2em;
-  margin-bottom: 2em;
+  margin: 2em;
   display: inline-flex;
-  margin-left: 5em;
 }
 
 .menu {
@@ -102,8 +92,8 @@ label.label {
 .ui.card > .image:not(.ui) > img,
 .ui.cards > .card > .image:not(.ui) > img {
   display: inline-block;
-  width: 310px;
-  height: 310px;
+  width: 250px;
+  height: 250px;
   margin: 1em;
 }
 .ui.cards.userCatCard {

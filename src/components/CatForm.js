@@ -16,10 +16,9 @@ class CatForm extends React.Component {
 
   handleSubmit = () => {
     const cat = this.state;
-    this.props.updateUserState(this.state);
-    this.props.updateCatCat(this.state);
-    this.props.history.push("/");
-    API.createCat(cat);
+    API.createCat(cat)
+      .then(cat => this.props.updateCatState(cat))
+      .then(this.props.history.push(`/profile`));
   };
 
   render() {
