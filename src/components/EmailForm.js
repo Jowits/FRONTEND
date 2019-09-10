@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import { Form, Button, Grid } from "semantic-ui-react";
+import { Form, Button, Grid, Header } from "semantic-ui-react";
 
 export default class EmailForm extends Component {
   state = {
@@ -64,6 +64,14 @@ export default class EmailForm extends Component {
         <Grid centered columns={2}>
           <Grid.Column>
             <Form onSubmit={this.handleSubmit}>
+              <Header
+                style={{ fontSize: "3em", width: "40.2em" }}
+                color="orange"
+                dividing
+              >
+                {" "}
+                Catz-play time!
+              </Header>
               <Form.Field>
                 <label style={{ fontSize: "1.5em", margin: "0.5em" }}>
                   Receiver

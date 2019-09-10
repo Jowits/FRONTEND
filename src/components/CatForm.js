@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Form, Grid } from "semantic-ui-react";
+import { Button, Form, Grid, Header } from "semantic-ui-react";
 import API from "../adapters/API";
 
 class CatForm extends React.Component {
@@ -26,7 +26,17 @@ class CatForm extends React.Component {
       <>
         <Grid centered columns={2}>
           <Grid.Column>
-            <Form onSubmit={() => this.handleSubmit(this.state)}>
+            <Form
+              style={{ margin: "3em" }}
+              onSubmit={() => this.handleSubmit(this.state)}
+            >
+              <Header
+                style={{ fontSize: "3em", width: "38.2em" }}
+                color="orange"
+                dividing
+              >
+                Cat details
+              </Header>
               <Form.Field>
                 <label style={{ fontSize: "1.5em", margin: "0.5em" }}>
                   Image
@@ -75,10 +85,7 @@ class CatForm extends React.Component {
                   onChange={this.handleChange}
                 />
               </Form.Field>
-              <Button
-                style={{ fontSize: "2em", paddingBottom: "0.5em" }}
-                type="submit"
-              >
+              <Button style={{ fontSize: "2em" }} type="submit">
                 Submit
               </Button>
             </Form>

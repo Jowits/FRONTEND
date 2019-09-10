@@ -8,7 +8,11 @@ const NavBar = ({ logOut, user }) => {
       <div className="ui item catzButton">
         {" "}
         <Link
-          style={{ color: "orange", fontSize: "1.2em", fontWeight: "bold" }}
+          style={{
+            color: "#FF7F11",
+            fontSize: "1.2em",
+            fontWeight: "bold"
+          }}
           to={`/`}
         >
           {" "}
@@ -20,7 +24,7 @@ const NavBar = ({ logOut, user }) => {
           <Input icon="search" placeholder="Search cats..." />
         </Menu.Item> */}
         <Menu.Item
-          style={{ color: "orange", fontSize: "1.6em" }}
+          style={{ color: "#FF7F11", fontSize: "1.6em" }}
           fixed="right"
           size="small"
         >
