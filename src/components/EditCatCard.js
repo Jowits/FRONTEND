@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form, Input, Button, TextArea } from "semantic-ui-react";
 
-const catsUrl = "http://localhost:3000/api/v1/cats";
+const catsUrl = "https://catz-play-api-app.herokuapp.com/api/v1/cats";
 
 class EditCatCard extends Component {
   state = {
