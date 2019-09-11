@@ -15,11 +15,15 @@ class MainPage extends React.Component {
   };
 
   componentDidMount() {
-    API.fetchCats().then(data =>
-      this.setState({
-        cats: data
-      })
-    );
+    if (localStorage.token) {
+      API.fetchCats().then(data =>
+        this.setState({
+          cats: data
+        })
+      );
+    } else {
+      this.props.history.push("/login");
+    }
   }
 
   setsReceiver = user => {
