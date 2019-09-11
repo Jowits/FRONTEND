@@ -19,7 +19,16 @@ class Profile extends React.Component {
     if (!this.props.user || !this.state.userProfile) return <div></div>;
     return (
       <>
-        <Card.Group className="profile">
+        <Card.Group
+          style={{
+            position: "relative",
+            top: "-20px",
+            margin: "3.5em",
+            width: "30em",
+            height: "30em"
+          }}
+          className="profile"
+        >
           <Card fluid>
             <Card.Content>
               <Card.Header style={{ margin: "1em" }}>
@@ -35,7 +44,7 @@ class Profile extends React.Component {
             </Card.Content>
             <Card.Content>
               <label className="label">Email:</label>
-              <Card.Description style={{ fontSize: "1em", margin: "1em" }}>
+              <Card.Description style={{ fontSize: "1em" }}>
                 {this.state.userProfile.user.email}
               </Card.Description>
             </Card.Content>
@@ -46,7 +55,15 @@ class Profile extends React.Component {
             </Card.Content>
           </Card>
         </Card.Group>
-        <Card.Group className="catCards">
+        <Card.Group
+          style={{
+            width: "150em",
+            position: "relative",
+            top: "2em",
+            float: "right"
+          }}
+          className="catCards"
+        >
           {this.props.cats.map(cat => (
             <UserCatCard
               editCatInArray={this.props.editCatInArray}

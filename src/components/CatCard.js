@@ -8,8 +8,7 @@ import {
   Form,
   Comment,
   Header,
-  Segment,
-  Dropdown
+  Segment
 } from "semantic-ui-react";
 import API from "../adapters/API";
 
@@ -97,7 +96,11 @@ class CatCard extends React.Component {
       <>
         <Card.Group fluid centered className="profile">
           <Card
-            style={{ height: "22em", width: "19em", top: "0.5em" }}
+            style={{
+              height: "22em",
+              width: "19em",
+              top: "0.5em"
+            }}
             color="orange"
           >
             <Image wrapped ui={false} src={this.props.cat.image} />

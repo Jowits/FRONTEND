@@ -1,6 +1,5 @@
 import React from "react";
 import CatCard from "../components/CatCard";
-import { Card, Grid, Checkbox } from "semantic-ui-react";
 
 class FilteredCats extends React.Component {
   render() {

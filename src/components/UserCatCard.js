@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Icon, Button, Image, Grid, Menu } from "semantic-ui-react";
+import { Card, Icon, Button, Image } from "semantic-ui-react";
 import EditCatCard from "../components/EditCatCard";
 
 class UserCatCard extends Component {
