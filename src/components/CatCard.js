@@ -53,12 +53,12 @@ class CatCard extends React.Component {
   bookCat = () => {
     return (
       <Segment style={{ background: "white", zIndex: "1" }}>
-        <Comment.Group style={{ background: "white", border: "orange" }}>
+        <Comment.Group style={{ background: "white", borderColor: "orange" }}>
           <Form reply onSubmit={() => this.handleSubmit(this.state)}>
             <Form.TextArea
               style={{ width: "20em", height: "8em" }}
               name="text"
-              placeholder="text"
+              placeholder="Review"
               value={this.state.text}
               onChange={this.handleChange}
             />
@@ -106,7 +106,7 @@ class CatCard extends React.Component {
             <Image wrapped ui={false} src={this.props.cat.image} />
             <Card.Content>
               <Card.Header textAlign="center">
-                <h2>{this.props.cat.name}</h2>
+                <h1>{this.props.cat.name}</h1>
               </Card.Header>
               <Card.Content>
                 <Card.Description textAlign="center">
@@ -116,7 +116,7 @@ class CatCard extends React.Component {
               </Card.Content>
               <Card.Content>
                 <Card.Description textAlign="center">
-                  <h4>{this.props.cat.description}</h4>
+                  <h3>{this.props.cat.description}</h3>
                 </Card.Description>
               </Card.Content>
               <Card.Content extra>
