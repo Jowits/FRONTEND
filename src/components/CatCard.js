@@ -8,7 +8,8 @@ import {
   Form,
   Comment,
   Header,
-  Segment
+  Segment,
+  Dropdown
 } from "semantic-ui-react";
 import API from "../adapters/API";
 
@@ -52,7 +53,7 @@ class CatCard extends React.Component {
 
   bookCat = () => {
     return (
-      <Segment style={{ background: "white" }}>
+      <Segment style={{ background: "white", zIndex: "1" }}>
         <Comment.Group style={{ background: "white", border: "orange" }}>
           <Form reply onSubmit={() => this.handleSubmit(this.state)}>
             <Form.TextArea
