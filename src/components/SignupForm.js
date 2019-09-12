@@ -13,7 +13,7 @@ const SignupForm = ({ submit, routerProps, user }) => {
 
   return (
     <>
-      <Grid style={{ margin: "15em" }} centered columns={2}>
+      <Grid style={{ margin: "10em" }} centered columns={2}>
         <Grid.Column>
           <Header
             style={{
@@ -26,7 +26,7 @@ const SignupForm = ({ submit, routerProps, user }) => {
             Add your details
           </Header>
           <Form
-            style={{ heigth: "10em", widths: "15em" }}
+            style={{ heigth: "10em", widths: "12em" }}
             size="large"
             onSubmit={e => {
               e.preventDefault();
@@ -76,11 +76,21 @@ const SignupForm = ({ submit, routerProps, user }) => {
                 onChange={e => setPassword(e.target.value)}
               />
             </Form.Group>
-            <Button fluid size="large">
+            <Button
+              style={{
+                fontSize: "1.5em",
+                textAlign: "center",
+                width: "52.5em"
+              }}
+              flui
+              size="large"
+            >
               Join Catz-Play
             </Button>
           </Form>
-          <Message style={{ fontSize: "1.5em", textAlign: "center" }}>
+          <Message
+            style={{ fontSize: "1.5em", textAlign: "center", width: "60em" }}
+          >
             Have an account?{" "}
             <a
               style={{ color: "orange", margin: "1em" }}

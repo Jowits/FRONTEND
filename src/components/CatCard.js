@@ -97,7 +97,7 @@ class CatCard extends React.Component {
         <Card.Group fluid centered className="profile">
           <Card
             style={{
-              height: "22em",
+              height: "23em",
               width: "19em",
               top: "0.5em"
             }}

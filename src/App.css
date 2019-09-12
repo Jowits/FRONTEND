@@ -73,8 +73,9 @@ label.label {
 .ui.cards.profile {
   font-size: 2em;
   text-align: center;
-  margin: 2em;
+  margin: 0.5em;
   display: inline-flex;
+  margin-left: 2em;
 }
 
 .menu {

@@ -31,7 +31,7 @@ class CatForm extends React.Component {
               onSubmit={() => this.handleSubmit(this.state)}
             >
               <Header
-                style={{ fontSize: "3em", width: "38.2em" }}
+                style={{ fontSize: "3em", width: "28.2em" }}
                 color="orange"
                 dividing
               >

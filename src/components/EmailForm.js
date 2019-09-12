@@ -65,7 +65,7 @@ export default class EmailForm extends Component {
           <Grid.Column>
             <Form onSubmit={this.handleSubmit}>
               <Header
-                style={{ fontSize: "3em", width: "40.2em" }}
+                style={{ fontSize: "3em", width: "30.3em" }}
                 color="orange"
                 dividing
               >

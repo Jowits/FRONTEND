@@ -13,7 +13,7 @@ const LoginForm = ({ submit, routerProps, user }) => {
     <div className="inventory-body">
       <Header
         style={{
-          fontSize: "9em",
+          fontSize: "6em",
           textAlign: "left",
           margin: "0.2em"
         }}
@@ -22,11 +22,10 @@ const LoginForm = ({ submit, routerProps, user }) => {
       </Header>
       <Segment
         style={{
-          position: "absolute",
-          right: "15em",
-          top: "9em",
-          width: "25em",
-          height: "35em",
+          position: "relative",
+          left: "78em",
+          width: "20em",
+          height: "30em",
           fontSize: "24px",
           textAlign: "center"
         }}
@@ -47,7 +46,7 @@ const LoginForm = ({ submit, routerProps, user }) => {
         >
           <Header
             style={{
-              fontSize: "3em",
+              fontSize: "2.5em",
               textAlign: "center",
               margin: "1em"
             }}
@@ -96,7 +95,7 @@ const LoginForm = ({ submit, routerProps, user }) => {
           </Button>
         </Form>
         <Header
-          style={{ fontSize: "1.5em", margin: "1.5em" }}
+          style={{ fontSize: "1.2em", margin: "1.5em" }}
           textAlign="center"
         >
           Not registered yet?

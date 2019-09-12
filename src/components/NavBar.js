@@ -24,14 +24,14 @@ const NavBar = ({ logOut, user }) => {
           <Input icon="search" placeholder="Search cats..." />
         </Menu.Item> */}
         <Menu.Item
-          style={{ color: "#FF7F11", fontSize: "1.6em" }}
+          style={{ color: "#FF7F11", fontSize: "1.5em" }}
           fixed="right"
           size="small"
         >
           <Dropdown width={2} text="Menu">
             <Dropdown.Menu
               style={{
-                fontSize: "0.8em",
+                fontSize: "0.6em",
                 textAlign: "centre"
               }}
             >
