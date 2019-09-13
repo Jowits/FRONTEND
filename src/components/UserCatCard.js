@@ -32,7 +32,7 @@ class UserCatCard extends Component {
     return (
       <>
         <Card.Group
-          style={{ margin: "3em", display: "block" }}
+          style={{ margin: "2em", display: "block" }}
           size="medium"
           className="profile"
         >
@@ -51,7 +51,7 @@ class UserCatCard extends Component {
                 </Card.Description>
               </Card.Content>
               <Card.Content>
-                <Card.Description textAlign="center">
+                <Card.Description style={{ margin: "1em" }} textAlign="center">
                   <h4>{cat.description}</h4>
                 </Card.Description>
               </Card.Content>

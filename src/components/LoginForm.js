@@ -18,11 +18,11 @@ const LoginForm = ({ submit, routerProps, user }) => {
 
   return (
     <div className="inventory-body">
-      <Grid columns={2}>
-        <Grid.Column width={12}>
+      <Grid columns={3}>
+        <Grid.Column width={11}>
           <Header
             style={{
-              fontSize: "6em",
+              fontSize: "5em",
               textAlign: "left",
               margin: "0.2em"
             }}
@@ -30,13 +30,13 @@ const LoginForm = ({ submit, routerProps, user }) => {
             Catz-Play<i className="fas fa-cat"></i>
           </Header>
         </Grid.Column>
-        <Grid.Column width={2}>
+        <Grid.Column width={4}>
           <Segment
             style={{
               top: "6em",
               position: "relative",
-              width: "20em",
-              height: "30em",
+              width: "15em",
+              height: "20em",
               fontSize: "24px",
               textAlign: "center"
             }}
@@ -57,17 +57,17 @@ const LoginForm = ({ submit, routerProps, user }) => {
             >
               <Header
                 style={{
-                  fontSize: "2.5em",
+                  fontSize: "1.8em",
                   textAlign: "center",
-                  margin: "1em"
+                  margin: "0.5em"
                 }}
               >
                 Let's play!
               </Header>
               <Form.Input
                 style={{
-                  height: "5em",
-                  width: "25em"
+                  height: "3em",
+                  width: "15em"
                 }}
                 centered
                 // error={{ content: 'Please enter your username', pointing: 'below' }}
@@ -80,8 +80,8 @@ const LoginForm = ({ submit, routerProps, user }) => {
               />
               <Form.Input
                 style={{
-                  height: "5em",
-                  width: "25em"
+                  height: "3em",
+                  width: "15em"
                 }}
                 // error={{ content: 'Please enter your password', pointing: 'below' }}
                 centered
@@ -95,9 +95,9 @@ const LoginForm = ({ submit, routerProps, user }) => {
               <Button
                 style={{
                   fontSize: "1.5em",
-                  height: "2.7em",
-                  width: "9em",
-                  margin: "1em"
+                  height: "2em",
+                  width: "6em",
+                  textAlign: "center"
                 }}
                 color="orange"
                 textAlign="center"
@@ -106,16 +106,16 @@ const LoginForm = ({ submit, routerProps, user }) => {
               </Button>
             </Form>
             <Header
-              style={{ fontSize: "1.2em", margin: "1.5em" }}
+              style={{ fontSize: "1em", margin: "1.5em" }}
               textAlign="center"
             >
               Not registered yet?
             </Header>
             <Button
               style={{
-                height: "3em",
-                width: "10em",
-                margin: "1em"
+                height: "2.2em",
+                width: "7em",
+                fontSize: "0.9em"
               }}
               onClick={() => routerProps.history.push("/signup")}
               color="orange"

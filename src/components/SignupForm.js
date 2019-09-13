@@ -13,20 +13,20 @@ const SignupForm = ({ submit, routerProps, user }) => {
 
   return (
     <>
-      <Grid style={{ margin: "10em" }} centered columns={2}>
-        <Grid.Column>
+      <Grid centered columns={2}>
+        <Grid.Column width={10}>
           <Header
             style={{
-              fontSize: "5em",
+              fontSize: "3em",
               textAlign: "center",
-              margin: "1em",
+              margin: "2em",
               color: "orange"
             }}
           >
             Add your details
           </Header>
           <Form
-            style={{ heigth: "10em", widths: "12em" }}
+            style={{ heigth: "8em" }}
             size="large"
             onSubmit={e => {
               e.preventDefault();
@@ -39,7 +39,7 @@ const SignupForm = ({ submit, routerProps, user }) => {
           >
             <Form.Group widths="equal">
               <Form.Field
-                style={{ fontSize: "1.5em" }}
+                style={{ fontSize: "1em" }}
                 id="form-input-control-username"
                 control={Input}
                 label="Username"
@@ -48,7 +48,7 @@ const SignupForm = ({ submit, routerProps, user }) => {
                 onChange={e => setUsername(e.target.value)}
               />
               <Form.Field
-                style={{ fontSize: "1.5em" }}
+                style={{ fontSize: "1em" }}
                 id="form-input-control-address"
                 control={Input}
                 label="Area"
@@ -57,7 +57,7 @@ const SignupForm = ({ submit, routerProps, user }) => {
                 onChange={e => setAddress(e.target.value)}
               />
               <Form.Field
-                style={{ fontSize: "1.5em" }}
+                style={{ fontSize: "1em" }}
                 id="form-input-control-email"
                 control={Input}
                 label="Email"
@@ -66,7 +66,7 @@ const SignupForm = ({ submit, routerProps, user }) => {
                 onChange={e => setEmail(e.target.value)}
               />
               <Form.Field
-                style={{ fontSize: "1.5em" }}
+                style={{ fontSize: "1em" }}
                 id="form-input-control-password"
                 control={Input}
                 label="Password"
@@ -80,7 +80,7 @@ const SignupForm = ({ submit, routerProps, user }) => {
               style={{
                 fontSize: "1.5em",
                 textAlign: "center",
-                width: "52.5em"
+                width: "37.2em"
               }}
               flui
               size="large"
@@ -89,7 +89,7 @@ const SignupForm = ({ submit, routerProps, user }) => {
             </Button>
           </Form>
           <Message
-            style={{ fontSize: "1.5em", textAlign: "center", width: "60em" }}
+            style={{ fontSize: "1.5em", textAlign: "center", width: "42.5em" }}
           >
             Have an account?{" "}
             <a

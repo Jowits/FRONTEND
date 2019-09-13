@@ -24,7 +24,7 @@ const NavBar = ({ logOut, user }) => {
           <Input icon="search" placeholder="Search cats..." />
         </Menu.Item> */}
         <Menu.Item
-          style={{ color: "#FF7F11", fontSize: "1.5em" }}
+          style={{ color: "#FF7F11", fontSize: "1em" }}
           fixed="right"
           size="small"
         >

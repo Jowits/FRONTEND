@@ -56,19 +56,19 @@ class CatCard extends React.Component {
         <Comment.Group style={{ background: "white", borderColor: "orange" }}>
           <Form reply onSubmit={() => this.handleSubmit(this.state)}>
             <Form.TextArea
-              style={{ width: "20em", height: "8em" }}
+              style={{ width: "15em", height: "6em" }}
               name="text"
               placeholder="Review"
               value={this.state.text}
               onChange={this.handleChange}
             />
-            <Button size="large" value="Submit" type="submit">
+            <Button size="medium" value="Submit" type="submit">
               Submit
             </Button>
           </Form>
 
           <Comment>
-            <Header as="h2" dividing>
+            <Header as="h4" dividing>
               Reviews
             </Header>
             <Comment.Content>
@@ -77,10 +77,12 @@ class CatCard extends React.Component {
                   .filter(review => review.cat.id === this.state.cat.id)
                   .map(review => (
                     <h4>
-                      <Comment.Author style={{ color: "#FF7F11" }}>
+                      <Comment.Author as="h5" style={{ color: "#FF7F11" }}>
                         {review.user.username}
                       </Comment.Author>{" "}
-                      <Comment.Text>{review.text}</Comment.Text>
+                      <Comment.Text style={{ fontSize: "0.9em" }}>
+                        {review.text}
+                      </Comment.Text>
                     </h4>
                   ))}
               </Comment.Content>
@@ -97,8 +99,8 @@ class CatCard extends React.Component {
         <Card.Group fluid centered className="profile">
           <Card
             style={{
-              height: "23em",
-              width: "19em",
+              height: "17em",
+              width: "13em",
               top: "0.5em"
             }}
             color="orange"
@@ -106,22 +108,23 @@ class CatCard extends React.Component {
             <Image wrapped ui={false} src={this.props.cat.image} />
             <Card.Content>
               <Card.Header textAlign="center">
-                <h1>{this.props.cat.name}</h1>
+                <h2>{this.props.cat.name}</h2>
               </Card.Header>
               <Card.Content>
                 <Card.Description textAlign="center">
-                  <h3>{this.props.cat.user.address}</h3>
+                  <h5>{this.props.cat.user.address}</h5>
                   <Icon name="paw" />
                 </Card.Description>
               </Card.Content>
               <Card.Content>
                 <Card.Description textAlign="center">
-                  <h3>{this.props.cat.description}</h3>
+                  <h5>{this.props.cat.description}</h5>
                 </Card.Description>
               </Card.Content>
               <Card.Content extra>
                 <Button
-                  style={{ width: "10em" }}
+                  style={{ width: "10em", height: "2em", margin: "0.5em" }}
+                  as="h4"
                   onClick={() =>
                     this.setReceiverAndRedirect(this.props.cat.user)
                   }
@@ -131,7 +134,8 @@ class CatCard extends React.Component {
               </Card.Content>
               <Card.Content>
                 <Button
-                  style={{ width: "10em" }}
+                  style={{ width: "10em", height: "2em" }}
+                  as="h4"
                   flex
                   onClick={this.toggleShowDetails}
                 >

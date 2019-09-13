@@ -31,7 +31,7 @@ class CatForm extends React.Component {
               onSubmit={() => this.handleSubmit(this.state)}
             >
               <Header
-                style={{ fontSize: "3em", width: "28.2em" }}
+                style={{ fontSize: "3em", width: "14.8em" }}
                 color="orange"
                 dividing
               >
@@ -85,7 +85,7 @@ class CatForm extends React.Component {
                   onChange={this.handleChange}
                 />
               </Form.Field>
-              <Button style={{ fontSize: "2em" }} type="submit">
+              <Button style={{ fontSize: "1.5em" }} type="submit">
                 Submit
               </Button>
             </Form>
