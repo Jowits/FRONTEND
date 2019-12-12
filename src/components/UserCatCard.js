@@ -10,7 +10,7 @@ class UserCatCard extends Component {
   handleEdit = () => {
     this.setState({ editClicked: !this.state.editClicked });
   };
-
+  // editing cat card
   renderContent = () => {
     if (this.props.cat && this.state.editClicked) {
       return (

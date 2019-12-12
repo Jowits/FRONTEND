@@ -7,7 +7,7 @@ class Profile extends React.Component {
   state = {
     userProfile: ""
   };
-
+  // fetching all users profile
   componentDidMount() {
     const profileID = this.props.user.id;
     API.fetchProfile(profileID).then(userProfile =>

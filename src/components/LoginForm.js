@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  Button,
-  Form,
-  Header,
-  Segment,
-  Grid,
-  GridColumn
-} from "semantic-ui-react";
+import { Button, Form, Header, Segment, Grid } from "semantic-ui-react";
 
 const LoginForm = ({ submit, routerProps, user }) => {
   const [username, setUsername] = useState("");

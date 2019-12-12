@@ -15,7 +15,7 @@ export default class EmailForm extends Component {
       feedback: event.target.value
     });
   };
-
+  //using EmailJS to send email to other user
   handleSubmit = event => {
     event.preventDefault();
     console.log(process.env);
@@ -91,7 +91,7 @@ export default class EmailForm extends Component {
                   style={{ fontSize: "1.5em", margin: "0.5em" }}
                   disabled
                   placeholder="Receiver"
-                  value={this.props.receiver.email}
+                  value={this.props.receiver.username}
                 />
               </Form.Field>
               <Form.Field>
