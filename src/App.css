@@ -5,6 +5,7 @@ app-root {
   margin: 0;
 }
 
+// login page
 .inventory-body {
   position: fixed;
   min-width: 100%;
@@ -64,7 +65,7 @@ label.label {
   font-size: 1em;
   margin: 0.5em;
 }
-
+// user card
 .ui.cards.profile {
   font-size: 2em;
   text-align: center;
@@ -85,6 +86,7 @@ label.label {
   margin: 1em;
 }
 
+//cat card
 .ui.card > .image:not(.ui) > img,
 .ui.cards > .card > .image:not(.ui) > img {
   display: inline-block;

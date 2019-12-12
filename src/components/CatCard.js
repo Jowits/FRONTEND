@@ -39,14 +39,14 @@ class CatCard extends React.Component {
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-
+  // creating new review
   handleSubmit = () => {
     const newReview = this.state;
     API.createReview(newReview).then(() => {
       this.setState({ reviews: [...this.state.reviews, newReview] });
     });
   };
-
+  //show all the reviews
   toggleShowDetails = () =>
     this.setState({ showDetails: !this.state.showDetails });
 
