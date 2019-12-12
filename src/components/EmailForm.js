@@ -85,17 +85,6 @@ export default class EmailForm extends Component {
               </Form.Field>
               <Form.Field>
                 <label style={{ fontSize: "1.5em", margin: "0.5em" }}>
-                  Email
-                </label>
-                <input
-                  style={{ fontSize: "1.5em", margin: "0.5em" }}
-                  disabled
-                  placeholder="Receiver"
-                  value={this.props.receiver.username}
-                />
-              </Form.Field>
-              <Form.Field>
-                <label style={{ fontSize: "1.5em", margin: "0.5em" }}>
                   Play-date time!
                 </label>
                 <Form.TextArea
