@@ -101,14 +101,15 @@ class CatCard extends React.Component {
             style={{
               height: "15em",
               width: "11em",
-              top: "0.5em"
+              top: "0.5em",
+              margin: "1.5em"
             }}
             color="orange"
           >
             <Image wrapped ui={false} src={this.props.cat.image} />
             <Card.Content>
               <Card.Header textAlign="center">
-                <h2>{this.props.cat.name}</h2>
+                <h3>{this.props.cat.name}</h3>
               </Card.Header>
               <Card.Content>
                 <Card.Description textAlign="center">
@@ -127,7 +128,7 @@ class CatCard extends React.Component {
                     width: "10em",
                     height: "2em",
                     padding: "0.5em",
-                    margin: "0.2em"
+                    margin: "0.3em"
                   }}
                   as="h4"
                   onClick={() =>
@@ -143,7 +144,7 @@ class CatCard extends React.Component {
                     width: "10em",
                     height: "2em",
                     padding: "0.5em",
-                    margin: "0.2em"
+                    margin: "0.3em"
                   }}
                   as="h4"
                   flex
