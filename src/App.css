@@ -43,13 +43,13 @@ div.ui.header.logo {
 }
 
 .navbar {
-  height: 6em;
+  height: 4.7em;
 }
 
 div.ui.item.catzButton {
   width: 9em;
-  font-size: 2.5em;
-  margin-left: 1em;
+  font-size: 1.8em;
+  margin-left: 0.5em;
 }
 
 button.ui.button {

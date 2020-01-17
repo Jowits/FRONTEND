@@ -89,7 +89,7 @@ const LoginForm = ({ submit, routerProps, user }) => {
                 style={{
                   fontSize: "1.5em",
                   height: "2.08em",
-                  width: "6.1em",
+                  width: "6.05em",
                   textAlign: "center",
                   padding: "0.2em"
                 }}
