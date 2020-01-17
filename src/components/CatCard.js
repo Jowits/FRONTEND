@@ -99,8 +99,8 @@ class CatCard extends React.Component {
         <Card.Group fluid centered className="profile">
           <Card
             style={{
-              height: "17em",
-              width: "13em",
+              height: "15em",
+              width: "11em",
               top: "0.5em"
             }}
             color="orange"
@@ -123,7 +123,12 @@ class CatCard extends React.Component {
               </Card.Content>
               <Card.Content extra>
                 <Button
-                  style={{ width: "10em", height: "2em", margin: "0.5em" }}
+                  style={{
+                    width: "10em",
+                    height: "2em",
+                    padding: "0.5em",
+                    margin: "0.2em"
+                  }}
                   as="h4"
                   onClick={() =>
                     this.setReceiverAndRedirect(this.props.cat.user)
@@ -134,7 +139,12 @@ class CatCard extends React.Component {
               </Card.Content>
               <Card.Content>
                 <Button
-                  style={{ width: "10em", height: "2em" }}
+                  style={{
+                    width: "10em",
+                    height: "2em",
+                    padding: "0.5em",
+                    margin: "0.2em"
+                  }}
                   as="h4"
                   flex
                   onClick={this.toggleShowDetails}

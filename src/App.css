@@ -80,20 +80,20 @@ label.label {
 .ui.card .content img,
 .ui.cards > .card .content img {
   display: inline-block;
-  width: 220px;
-  height: 220px;
+  width: 200px;
+  height: 200px;
   margin: 1em;
 }
 
 .ui.card > .image:not(.ui) > img,
 .ui.cards > .card > .image:not(.ui) > img {
   display: inline-block;
-  width: 200px;
-  height: 200px;
-  margin: 1em;
+  width: 180px;
+  height: 180px;
+  margin: 0.5em;
 }
 .ui.cards.userCatCard {
-  font-size: 2em;
+  font-size: 1.7em;
   text-align: center;
   margin: 1em;
 }
@@ -101,5 +101,5 @@ label.label {
 .ui.card > .content,
 .ui.cards > .card > .content {
   text-align: center;
-  font-size: 2em;
+  font-size: 1.8em;
 }
