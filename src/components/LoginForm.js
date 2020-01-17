@@ -108,10 +108,11 @@ const LoginForm = ({ submit, routerProps, user }) => {
               style={{
                 height: "2.25em",
                 width: "7em",
-                fontSize: "0.9em"
+                fontSize: "0.9em",
+                color: "rgb(224, 84, 18)"
               }}
               onClick={() => routerProps.history.push("/signup")}
-              color="orange"
+              // color="orange"
             >
               Sign Up
             </Button>
