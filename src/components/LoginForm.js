@@ -106,7 +106,7 @@ const LoginForm = ({ submit, routerProps, user }) => {
             </Header>
             <Button
               style={{
-                height: "2.2em",
+                height: "2.25em",
                 width: "7em",
                 fontSize: "0.9em"
               }}
