@@ -22,9 +22,9 @@ class Profile extends React.Component {
         <Card.Group
           style={{
             position: "relative",
-            margin: "3em",
+            margin: "1.8em",
             width: "16em",
-            height: "16em"
+            height: "18em"
           }}
           className="profile"
         >

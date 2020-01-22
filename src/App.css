@@ -80,8 +80,8 @@ label.label {
 .ui.card .content img,
 .ui.cards > .card .content img {
   display: inline-block;
-  width: 270px;
-  height: 200px;
+  width: 170px;
+  height: 160px;
   margin: 1em;
 }
 

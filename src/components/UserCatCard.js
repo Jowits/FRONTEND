@@ -31,17 +31,16 @@ class UserCatCard extends Component {
 
     return (
       <>
-        <Card.Group
-          style={{
-            margin: "2em",
-            display: "block",
-            width: "500px",
-            height: "100px"
-          }}
-          size="medium"
-          className="profile"
-        >
-          <Card color="orange" fluid>
+        <Card.Group size="medium" className="profile">
+          <Card
+            style={{
+              display: "block",
+              height: "16em",
+              width: "15em"
+            }}
+            color="orange"
+            fluid
+          >
             <Card.Content>
               <Image wrapped ui={false} src={cat.image} />
               <Card.Content>
@@ -56,15 +55,26 @@ class UserCatCard extends Component {
                 </Card.Description>
               </Card.Content>
               <Card.Content>
-                <Card.Description style={{ margin: "1em" }} textAlign="center">
+                <Card.Description
+                  style={{ margin: "0.5em" }}
+                  textAlign="center"
+                >
                   <h4>{cat.description}</h4>
                 </Card.Description>
               </Card.Content>
               <Card.Content>
-                <Button onClick={() => this.props.deleteCat(cat.id)}>
+                <Button
+                  style={{ margin: "0.1em", fontSize: "0.7em" }}
+                  onClick={() => this.props.deleteCat(cat.id)}
+                >
                   Delete Cat
                 </Button>
-                <Button onClick={() => this.handleEdit()}>Edit</Button>
+                <Button
+                  style={{ margin: "0.1em", fontSize: "0.7em" }}
+                  onClick={() => this.handleEdit()}
+                >
+                  Edit
+                </Button>
                 {this.renderContent()}
               </Card.Content>
             </Card.Content>
