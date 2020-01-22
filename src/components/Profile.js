@@ -23,14 +23,14 @@ class Profile extends React.Component {
           style={{
             position: "relative",
             margin: "3em",
-            width: "15em",
+            width: "16em",
             height: "16em"
           }}
           className="profile"
         >
           <Card fluid>
             <Card.Content>
-              <Card.Header style={{ margin: "1em" }}>
+              <Card.Header>
                 <label className="label">Username:</label>
                 {this.state.userProfile.user.username}
               </Card.Header>
@@ -43,7 +43,7 @@ class Profile extends React.Component {
             </Card.Content>
             <Card.Content>
               <label className="label">Email:</label>
-              <Card.Description style={{ fontSize: "1em" }}>
+              <Card.Description style={{ fontSize: "0.8em", margin: "0.8em" }}>
                 {this.state.userProfile.user.email}
               </Card.Description>
             </Card.Content>

@@ -88,7 +88,7 @@ label.label {
 .ui.card > .image:not(.ui) > img,
 .ui.cards > .card > .image:not(.ui) > img {
   display: inline-block;
-  width: 150px;
+  width: 180px;
   height: 150px;
   margin: 0.5em;
 }
@@ -104,4 +104,6 @@ label.label {
   font-size: 1.8em;
 }
 
-/* div.ui.cards.ui.cards.profile */
+/* div.ui.cards.ui.cards.profile {
+  
+} */

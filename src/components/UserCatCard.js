@@ -32,7 +32,12 @@ class UserCatCard extends Component {
     return (
       <>
         <Card.Group
-          style={{ margin: "2em", display: "block" }}
+          style={{
+            margin: "2em",
+            display: "block",
+            width: "500px",
+            height: "100px"
+          }}
           size="medium"
           className="profile"
         >
