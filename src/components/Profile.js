@@ -27,7 +27,7 @@ class Profile extends React.Component {
           }}
           className="profile"
         >
-          <Card fluid>
+          <Card color="orange" fluid>
             <Card.Content>
               <Card.Header>
                 <label className="label">Username:</label>
@@ -55,7 +55,8 @@ class Profile extends React.Component {
         </Card.Group>
         <Card.Group
           style={{
-            float: "right"
+            float: "right",
+            position: "relative"
           }}
           className="catCards"
         >
