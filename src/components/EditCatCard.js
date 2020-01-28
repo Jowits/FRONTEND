@@ -57,6 +57,9 @@ class EditCatCard extends Component {
         style={{
           background: "white",
           border: "solid",
+          borderRadius: "0.2em",
+          borderWidth: "1px",
+          borderColor: "rgb(224, 84, 18)",
           width: "11.2em",
           padding: "0.3em"
         }}
