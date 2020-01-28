@@ -21,9 +21,9 @@ class Profile extends React.Component {
       <>
         <Card.Group
           style={{
-            margin: "3em",
+            margin: "4em",
             width: "16em",
-            height: "18em"
+            height: "19.5em"
           }}
           className="profile"
         >
@@ -55,8 +55,7 @@ class Profile extends React.Component {
         </Card.Group>
         <Card.Group
           style={{
-            float: "right",
-            margin: "3em"
+            float: "right"
           }}
           className="catCards"
         >

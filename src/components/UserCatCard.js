@@ -35,8 +35,9 @@ class UserCatCard extends Component {
           <Card
             style={{
               display: "block",
-              height: "16em",
-              width: "15em"
+              height: "15.8em",
+              width: "15em",
+              margin: "4em"
             }}
             color="orange"
             fluid

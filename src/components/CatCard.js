@@ -128,7 +128,7 @@ class CatCard extends React.Component {
                     width: "10em",
                     height: "2em",
                     padding: "0.5em",
-                    margin: "0.3em"
+                    margin: "0.5em"
                   }}
                   as="h4"
                   onClick={() =>
@@ -144,7 +144,7 @@ class CatCard extends React.Component {
                     width: "10em",
                     height: "2em",
                     padding: "0.5em",
-                    margin: "0.3em"
+                    margin: "0.5em"
                   }}
                   as="h4"
                   flex
