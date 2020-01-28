@@ -53,7 +53,16 @@ class EditCatCard extends Component {
 
   render() {
     return (
-      <Form.Dropdown onSubmit={this.handleSubmit} className="note-editor">
+      <Form.Dropdown
+        style={{
+          background: "white",
+          border: "solid",
+          width: "11.2em",
+          padding: "0.3em"
+        }}
+        onSubmit={this.handleSubmit}
+        className="note-editor"
+      >
         <Form>
           <Form.Field>
             <label className="catForm">Image</label>

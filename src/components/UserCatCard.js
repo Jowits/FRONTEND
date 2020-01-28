@@ -63,9 +63,7 @@ class UserCatCard extends Component {
                   <h4>{cat.description}</h4>
                 </Card.Description>
               </Card.Content>
-              <Card.Content
-                style={{ background: "white", borderColor: "black" }}
-              >
+              <Card.Content>
                 <Button
                   style={{ margin: "0.1em", fontSize: "0.7em" }}
                   onClick={() => this.props.deleteCat(cat.id)}
