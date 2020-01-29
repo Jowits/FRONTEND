@@ -85,7 +85,10 @@ class CatForm extends React.Component {
                   onChange={this.handleChange}
                 />
               </Form.Field>
-              <Button style={{ fontSize: "1.5em" }} type="submit">
+              <Button
+                style={{ fontSize: "1.5em", padding: "0.2em" }}
+                type="submit"
+              >
                 Submit
               </Button>
             </Form>

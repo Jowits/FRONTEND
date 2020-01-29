@@ -52,7 +52,16 @@ class CatCard extends React.Component {
 
   bookCat = () => {
     return (
-      <Segment style={{ background: "white", zIndex: "1" }}>
+      <Segment
+        style={{
+          background: "white",
+          zIndex: "1",
+          border: "solid",
+          borderRadius: "0.2em",
+          borderWidth: "1px",
+          borderColor: "rgb(224, 84, 18)"
+        }}
+      >
         <Comment.Group style={{ background: "white", borderColor: "orange" }}>
           <Form reply onSubmit={() => this.handleSubmit(this.state)}>
             <Form.TextArea
@@ -150,7 +159,7 @@ class CatCard extends React.Component {
                   flex
                   onClick={this.toggleShowDetails}
                 >
-                  {this.state.showDetails ? "hide" : "Review me!"}
+                  {this.state.showDetails ? "hide" : "Review me"}
                 </Button>
                 {this.state.showDetails && this.bookCat()}
               </Card.Content>
