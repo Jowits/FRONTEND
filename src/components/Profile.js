@@ -30,25 +30,31 @@ class Profile extends React.Component {
           <Card color="orange" fluid>
             <Card.Content>
               <Card.Header>
-                <label className="label">Username:</label>
+                <label style={{ color: "rgb(224, 84, 18)" }} className="label">
+                  Username:
+                </label>
                 {this.state.userProfile.user.username}
               </Card.Header>
             </Card.Content>
             <Card.Content>
               <Card.Description>
-                <label className="label">Area:</label>
+                <label style={{ color: "rgb(224, 84, 18)" }} className="label">
+                  Area:
+                </label>
                 {this.state.userProfile.user.address}
               </Card.Description>
             </Card.Content>
             <Card.Content>
-              <label className="label">Email:</label>
+              <label style={{ color: "rgb(224, 84, 18)" }} className="label">
+                Email:
+              </label>
               <Card.Description style={{ fontSize: "0.8em", margin: "0.8em" }}>
                 {this.state.userProfile.user.email}
               </Card.Description>
             </Card.Content>
             <Card.Content extra>
               <a href="#">
-                <Icon name="paw" />
+                <Icon style={{ color: "rgb(224, 84, 18)" }} name="paw" />
               </a>
             </Card.Content>
           </Card>
