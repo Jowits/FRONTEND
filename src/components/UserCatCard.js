@@ -52,7 +52,7 @@ class UserCatCard extends Component {
               <Card.Content>
                 <Card.Description textAlign="center">
                   <h3>{cat.address}</h3>
-                  <Icon name="paw" />
+                  <Icon style={{ color: "rgb(224, 84, 18)" }} name="paw" />
                 </Card.Description>
               </Card.Content>
               <Card.Content>

@@ -123,7 +123,7 @@ class CatCard extends React.Component {
               <Card.Content>
                 <Card.Description textAlign="center">
                   <h5>{this.props.cat.user.address}</h5>
-                  <Icon name="paw" />
+                  <Icon style={{ color: "rgb(224, 84, 18)" }} name="paw" />
                 </Card.Description>
               </Card.Content>
               <Card.Content>
