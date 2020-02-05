@@ -132,7 +132,10 @@ class CatCard extends React.Component {
                 </Card.Description>
               </Card.Content>
               <Card.Content>
-                <Card.Description textAlign="center">
+                <Card.Description
+                  textAlign="center"
+                  style={{ padding: "0.1em" }}
+                >
                   <h5>{this.props.cat.description}</h5>
                 </Card.Description>
               </Card.Content>
