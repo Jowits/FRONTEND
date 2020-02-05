@@ -91,7 +91,10 @@ class CatCard extends React.Component {
                   .filter(review => review.cat.id === this.state.cat.id)
                   .map(review => (
                     <h4>
-                      <Comment.Author as="h5" style={{ color: "#FF7F11" }}>
+                      <Comment.Author
+                        as="h5"
+                        style={{ color: "rgb(224, 84, 18)" }}
+                      >
                         {review.user.username}
                       </Comment.Author>{" "}
                       <Comment.Text style={{ fontSize: "0.9em" }}>
