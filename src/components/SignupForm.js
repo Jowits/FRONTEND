@@ -80,7 +80,8 @@ const SignupForm = ({ submit, routerProps, user }) => {
               style={{
                 fontSize: "1.5em",
                 textAlign: "center",
-                width: "37.2em"
+                width: "37.2em",
+                padding: "0.2em"
               }}
               flui
               size="large"
