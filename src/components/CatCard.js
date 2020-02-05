@@ -57,12 +57,17 @@ class CatCard extends React.Component {
           background: "white",
           zIndex: "1",
           border: "solid",
-          borderRadius: "0.2em",
+          borderRadius: "0.5em",
           borderWidth: "1px",
           borderColor: "rgb(224, 84, 18)"
         }}
       >
-        <Comment.Group style={{ background: "white", borderColor: "orange" }}>
+        <Comment.Group
+          style={{
+            background: "white",
+            borderColor: "orange"
+          }}
+        >
           <Form reply onSubmit={() => this.handleSubmit(this.state)}>
             <Form.TextArea
               style={{ width: "15em", height: "6em" }}

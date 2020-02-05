@@ -20,7 +20,7 @@ const SignupForm = ({ submit, routerProps, user }) => {
               fontSize: "3em",
               textAlign: "center",
               margin: "2em",
-              color: "orange"
+              color: "rgb(224, 84, 18)"
             }}
           >
             Add your details
@@ -93,7 +93,7 @@ const SignupForm = ({ submit, routerProps, user }) => {
           >
             Have an account?{" "}
             <a
-              style={{ color: "orange", margin: "1em" }}
+              style={{ color: "rgb(224, 84, 18)", margin: "1em" }}
               onClick={() => routerProps.history.push("/login")}
             >
               Login

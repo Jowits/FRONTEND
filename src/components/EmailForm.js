@@ -101,7 +101,8 @@ export default class EmailForm extends Component {
                   paddingBottom: "0.5em",
                   marginLeft: "0.55em",
                   width: "6em",
-                  height: "2em"
+                  height: "2em",
+                  padding: "0.2em"
                 }}
                 value="Submit"
                 type="submit"
